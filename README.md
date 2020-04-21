@@ -44,22 +44,22 @@ Nous allons creer une plateforme web afin de proposer des services de commandes 
 ## Ordre d'implémentation:
 
 * **Backend:**
-  - [ ] Creer les tables SQL contenant les données des brasseurs/bières
-  - [ ] Creer les tables vides pour le(s) futur(s) client(s)
-  - [ ] Creer les procédures pour charger les fichiers html/css/js ainsi que pour traiter les réponses et requetes
-  - [ ] Creer les services web pour initialiser la page et gérer les requetes/interactions
+  * Creer les tables SQL contenant les données des brasseurs/bières
+  * Creer les tables vides pour le(s) futur(s) client(s)
+  * Creer les procédures pour charger les fichiers html/css/js ainsi que pour traiter les réponses et requetes
+  * Creer les services web pour initialiser la page et gérer les requetes/interactions
 * **Frontend:**
-  - [ ] Creer la page html et le css
-  - [ ] Creer le fichier js permettant:
-  - [ ] d'initaliser la page et le catalogue
-  - [ ] de permettre au client de se connecter et de récuperer ses données
-  - [ ] de gérer les commandes  
+  * Creer la page html et le css
+  * Creer le fichier js permettant:
+  * d'initaliser la page et le catalogue
+  * de permettre au client de se connecter et de récuperer ses données
+  * de gérer les commandes  
            
 ## Implémentation : Approche fonctionnelle:
 En tant qu'utilisateur je veux pouvoir:
-   - [ ] Accéder a la page d'accueil
-   - [ ] Me connecter à mon compte
-   - [ ] Visualiser le catalogue des bières
-   - [ ] Passer une commande avec un ou plusieurs articles dans différentes quantités
-   - [ ] Annuler une commande
-   - [ ] Visualiser mon historique
+   * Accéder a la page d'accueil
+   * Me connecter à mon compte
+   * Visualiser le catalogue des bières
+   * Passer une commande avec un ou plusieurs articles dans différentes quantités
+   * Annuler une commande
+   * Visualiser mon historique
