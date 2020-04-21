@@ -1,7 +1,16 @@
-Besoin du client
+Groupe :   Dory Mathis,
+           Lepage Eliott,
+           Bombaert Andréas,
+           De Dryver Cédric.
 
+Besoin du client :
+      Creer une plateforme web afin de proposer des services de commandes de bieres.
 
-Fonctionnalités principales
+Fonctionnalités principales :
+      Un formulaire pour commander des bières,
+      Faire une liste des bières disponible sur commande,
 
-
-Fonctionnalités supplémentaires
+Fonctionnalités supplémentaires :
+      rajouter une description pour chaque bières, ainsi qu'un filtre pour les classer.
+      Faire un systeme de client (avec login) et ainsi avoir une fiche client.
+      Faire une récapitulation de la commande après envoi du formulaire, avec un bouton pour pouvoir imprimer.
