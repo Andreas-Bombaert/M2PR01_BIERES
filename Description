@@ -3,14 +3,39 @@ Groupe :   Dory Mathis,
            Bombaert Andréas,
            De Dryver Cédric.
 
-Besoin du client :
-      Creer une plateforme web afin de proposer des services de commandes de bieres.
+BESOINS DU CLIENT :
+      -Creer une plateforme web afin de proposer des services de commandes de bieres.
 
-Fonctionnalités principales :
-      Un formulaire pour commander des bières,
-      Faire une liste des bières disponible sur commande,
+FONCTIONNALITES PRINCIPALES :
+      -Un formulaire pour commander des bières,
+      -Faire une liste des bières disponible sur commande,
 
-Fonctionnalités supplémentaires :
-      rajouter une description pour chaque bières, ainsi qu'un filtre pour les classer.
-      Faire un systeme de client (avec login) et ainsi avoir une fiche client.
-      Faire une récapitulation de la commande après envoi du formulaire, avec un bouton pour pouvoir imprimer.
+
+FONCTIONNALITES SUPPLEMENTAIRES :
+      -Rajouter une description pour chaque bières, ainsi qu'un filtre pour les classer.
+      -Faire un systeme de client (avec login) et ainsi avoir une fiche client.
+      -Faire une récapitulation de la commande après envoi du formulaire, avec un bouton pour pouvoir imprimer.
+      -Faire un historique des commandes
+      -Annuler une commande
+
+IMPLEMENTATION TECHNIQUE:
+      1. backend : base de donnée contenant les tables avec les bières,leurs descriptions, 
+      ainsi que les brasseurs et les informations allant avec
+      2. backend : serveur fournissant les fichiers html, css et js ainsi que les webservices
+      3. backend : Différents webservices:
+                    -Un webservice pour initialiser le catalogue des bières disponibles
+                    -Un webservice pour se connecter et obtenir ses informations en tant que client
+                    -Un webservice pour l'historique
+                    -Un webservice pour envoyer les commandes
+      4. frontend : Une page HTML accompagné de son css/js qui appelera les différents webservices
+                    et utilisera les réponses pour modifier la page/la base de données lors des
+                    différents évenements:
+                    -Connexion d'un client
+                    -Commande passée par un client
+                    -Requete de l'historique
+                    -Annulation de la commande
+
+
+
+
+ORDRE D'IMPLEMENTATION
