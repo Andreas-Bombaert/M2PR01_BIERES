@@ -4,7 +4,7 @@ Voici le repository pour notre projet 1TM2 - Commande de bières en ligne.
 ## Présentation :
 Nous sommes 4 étudiants de la branche IT de l'[![Ephec](https://i.imgur.com/rnFtoBv.png)](https://www.ephec.be/)
 * [Dory Mathis](https://github.com/Mathis-Dory)
-* Lepage Eliott, *n'a pas encore de compte github*
+* [Lepage Eliott](https://github.com/Eliott-Lepage)
 * [Bombaert Andréas](https://github.com/Andreas-Bombaert)
 * [De Dryver Cédric](https://github.com/DeDryverC)
 
