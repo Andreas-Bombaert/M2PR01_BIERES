@@ -33,7 +33,7 @@ Nous allons creer une plateforme web afin de proposer des services de commandes 
   * Un webservice pour initialiser le catalogue des bières disponibles
   * Un webservice pour se connecter et obtenir ses informations en tant que client 
   * Un webservice pour l'historique
-  * Un webservice pour envoyer les commandes
+  * Un webservice pour envoyer/annuler les commandes
   
 * **frontend** : Une page HTML accompagné de son css/js qui appelera les différents webservices et utilisera les réponses pour modifier la page/la base de données lors des différents évenements:
   * Connexion d'un client
