@@ -2,7 +2,7 @@
 Voici le repository pour notre projet 1TM2 - Commande de bières en ligne.
 
 ## Présentation :
-Nous sommes 4 étudiants de la branche IT de l'![Ephec](https://thumbnails.digitalwallonia.be/dbcb2ff48b1941d1911c6d4c3e01bdc157fdda90a4072cb39aa77c38448fb8a618e13fd0510d46b47588767c8271391d6ff5ed3030806b822b6feb7e6cd5e21e/150x45.webp)
+Nous sommes 4 étudiants de la branche IT de l'![Ephec](https://i.imgur.com/IuuoPZr.png)
 * [Dory Mathis](https://github.com/Mathis-Dory)
 * Lepage Eliott, *n'a pas encore de compte github*
 * [Bombaert Andréas](https://github.com/Andreas-Bombaert)
