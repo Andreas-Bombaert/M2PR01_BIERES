@@ -1,5 +1,5 @@
 CREATE TABLE "tbVentes" (
-    "commId" char(4) NOT NULL,
+    "commId" INTEGER NOT NULL,
     "ligneNo" INTEGER NOT NULL,
     "biereID" decimal(6,2) NOT NULL,
     "prodQuant" INTEGER NOT NULL,
