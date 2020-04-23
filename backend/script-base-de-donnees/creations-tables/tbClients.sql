@@ -4,7 +4,7 @@ CREATE TABLE tbClients(
   clientPrenom VARCHAR(20) NOT NULL,
   clientAdresse VARCHAR(50) NOT NULL,
   clientMail VARCHAR(50) NOT NULL,
-  CONSTRAINT pk__Clients PRIMARY KEY (clientId ASC)
+  CONSTRAINT pk__Clients PRIMARY KEY (clientId)
 );
 
 INSERT INTO Clients(clientNom,clientPrenom,clientAdresse,clientMail)
