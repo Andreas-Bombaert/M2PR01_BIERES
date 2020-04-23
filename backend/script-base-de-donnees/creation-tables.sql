@@ -44,8 +44,8 @@ CREATE TABLE tbHistoriques (
     prixTot decimal(6,2) NOT NULL,
     quantTot INTEGER NOT NULL,
     "date" "datetime" NOT NULL DEFAULT getDate(),
-    CONSTRAINT pk__tbHistoriques PRIMARY KEY (commId)
-    CONSTRAINT fk__tbHistoriques PRIMARY KEY (clientId) REFERENCES tbClients (clientId)
+    CONSTRAINT pk__tbHistoriques PRIMARY KEY (commId),
+    CONSTRAINT fk__tbHistoriques FOREIGN KEY (clientId) REFERENCES tbClients (clientId)
     on update CASCADE
     on delete restrict
 );
