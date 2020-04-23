@@ -4,5 +4,5 @@ CREATE TABLE "tbVentes" (
     "biereID" decimal(6,2) NOT NULL,
     "prodQuant" INTEGER NOT NULL,
     CONSTRAINT "pk__tbVentes" PRIMARY KEY ( "commID" ASC ),
-    CONSTRAINT "fk__tbVentes__tbHistorique" FOREIGN KEY (commID) REFERENCES tbHistoriques (commID)
+    CONSTRAINT "fk__tbVentes__tbHistoriques" FOREIGN KEY (commID) REFERENCES tbHistoriques (commID)
 );
