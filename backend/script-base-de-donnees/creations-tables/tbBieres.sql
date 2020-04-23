@@ -1,11 +1,11 @@
 CREATE TABLE tbBieres(
-biereId INTEGER NOT NULL DEFAULT AUTOINCREMENT,
+biereId CHAR(3) NOT NULL,
 biereNom VARCHAR(30) NOT NULL,
 biereCouleur VARCHAR(15) NOT NULL, 
 biereAlcool DECIMAL NULL,
 biereVolume NUMERIC NOT NULL, 
 bierePrix DECIMAL NOT NULL,
-brasseurId INTEGER NOT NULL DEFAULT AUTOINCREMENT,
+brasseurId char(3) NOT NULL,
 CONSTRAINT pk_tbBieres PRIMARY KEY (biereId),
 CONSTRAINT fk_tbBieres FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
 on update cascade
