@@ -7,7 +7,7 @@ CREATE TABLE tbClients(
   CONSTRAINT pk__Clients PRIMARY KEY (clientId)
 );
 
-INSERT INTO Clients(clientNom,clientPrenom,clientAdresse,clientMail)
+INSERT INTO tbClients(clientNom,clientPrenom,clientAdresse,clientMail)
 VALUES
 ('Tétrault','Solène','321 Chaussée de Liège 3220 Holsbeek','SolaineTetrault@armyspy.com'),
 ('Pellerin','Donat','104 Schoolstraat 4280 Wansin','DonatPellerin@dayrep.com'),
