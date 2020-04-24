@@ -1,5 +1,5 @@
 CREATE TABLE tbClients(
-  clientId VARCHAR(5) NOT NULL,
+  clientId char(5) NOT NULL,
   clientNom VARCHAR(20) NOT NULL,
   clientPrenom VARCHAR(20) NOT NULL,
   clientAdresse VARCHAR(50) NOT NULL,
