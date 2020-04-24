@@ -1,30 +1,3 @@
-
-/*
-Insère une liste de clients aléatoires pour effectuer des tests
-*/
-INSERT INTO tbClients(clientId,clientNom,clientPrenom,clientAdresse,clientMail)
-VALUES
-('cl001','Tétrault','Solène','321 Chaussée de Liège 3220 Holsbeek','SolaineTetrault@armyspy.com'),
-('cl002','Pellerin','Donat','104 Schoolstraat 4280 Wansin','DonatPellerin@dayrep.com'),
-('cl003','Doyon','Jessamine','419 Rue des Honnelles 5530 Yvoir','JessamineDoyon@rhyta.com'),
-('cl004','Josseaume','Corette','289 Langestraat 9120 Kallo','CoretteJosseaume@rhyta.com'),
-('cl005','Gareau','Tyson','305 Rue de Birmingham 9890 Dikkelvenne','TysonGareau@jourrapide.com'),
-('cl006','Labbé','Musette','216 Rue de Liège 4987 Lorcé','MusetteLabbe@armyspy.com'),
-('cl007','Huppé','Cheney','418 Pierre Delannoyplaats 9940 Ertvelde','CheneyHuppe@rhyta.com'),
-('cl008','Beaudry','Yves','427 Maskenstraat 8650 Klerken','YvesBeaudry@dayrep.com'),
-('cl009','Boutot','Arianne','485 Brixtonlaan 7160 Chapelle-lez-Herlaimont','ArianneBoutot@armyspy.com'),
-('cl010','Monjeau','Lothaire','340 Rue des Taillis 7863 Ghoy','LothairMonjeau@rhyta.com'),
-('cl011','Forest','Adrienne','327 Place Léopold 7050 Herchies','AdrienneForest@rhyta.com'),
-('cl012','Lacharité','Brunella','245 Rue de Bouillon 7830 Graty','BrunellaLacharite@jourrapide.com'),
-('cl013','Deschamps','Joseph','209 Mandemakersstraat 6666 Wibrin','JosephDeschamps@dayrep.com'),
-('cl014','Archambault','Fayette','318 Dijkstraat 9620 Elene','FayetteArchambault@dayrep.com'),
-('cl015','Ruais','Martin','145 Rue des Taillis 7041 Givry','MartinRuais@dayrep.com'),
-('cl016','Plaisance','Didier','472 Rue de la Poste 4557 Ramelot','DidierPlaisance@jourrapide.com'),
-('cl017','Lamontagne','Yolande','292 Rue de Fontigny 8972 Roesbrugge-Haringe','YolandeLamontagne@rhyta.com'),
-('cl018','Adler','Océane','433 Rue du Vert Galant 6830 Poupehan','OceaneAdler@dayrep.com'),
-('cl019','Lépicier','Pinabel','20 Rue des Tanneurs 7160 Piéton','PinabelLepicier@rhyta.com'),
-('cl020','Bérubé','Thérèse','405 Rue Bouhouille 3290 Schaffen','ThereseBerube@jourrapide.com');
-
 /*
 Données des villes
 */
@@ -45,6 +18,25 @@ VALUES
 ('6460', 'Chimay');
 ('6823', 'Orval');
 
+/*
+Donnée des Brasseurs
+*/
+INSERT INTO tbBrasseurs (brasseurId, brasseurNom, vilId)
+    VALUES
+    ('br01', 'Brasserie Orval', '6823'),
+    ('br02', 'Brasserie Westmalle', '2390'),
+    ('br03', 'Brasserie Alken', '3570'),
+    ('br04', 'Brasserie Artois', '3000'),
+    ('br05', 'Brasserie Bertinchamps', '5030'),
+    ('br06', 'Brasserie Du Bocq', '5530'),
+    ('br07', 'Brasserie Bosteels', '9255'),   
+    ('br08', 'Brasserie Caracole', '5500'),
+    ('br09', 'Brasserie De Konick', '2030'),
+    ('br10', 'Brasserie Du Clocher', '5020'),
+    ('br11', 'Brasserie Dubuisson', '7900'),
+    ('br12', 'Brasserie Duvel', '2870'),
+    ('br13', 'Brasserie de Abbaye de Notre Dame de Saint-Rémy', '5580'),
+    ('br14', 'Brasserie de Abbaye Notre-Dame de Scourmont', '6460');
 
 /*
 Données du tableau des bières
@@ -99,23 +91,53 @@ INSERT INTO tbBieres(biereId, biereNom, biereCouleur, biereAlcool, biereVolume, 
  ('b46', 'Grimbergen Optimo Bruno', 'brune', 10, 33, 2.45, 'br03'),
  ('b47', 'Grimbergen Hiver', 'brune', 6.5, 33, 2.25, 'br03'),
  ('b48', 'Grimbergen Printemps', 'fruitée', 6.0, 33, 2.23, 'br03');
+ 
+/*
+Insère une liste de clients aléatoires pour effectuer des tests
+*/
+INSERT INTO tbClients(clientId,clientNom,clientPrenom,clientAdresse,clientMail)
+VALUES
+('cl001','Tétrault','Solène','321 Chaussée de Liège 3220 Holsbeek','SolaineTetrault@armyspy.com'),
+('cl002','Pellerin','Donat','104 Schoolstraat 4280 Wansin','DonatPellerin@dayrep.com'),
+('cl003','Doyon','Jessamine','419 Rue des Honnelles 5530 Yvoir','JessamineDoyon@rhyta.com'),
+('cl004','Josseaume','Corette','289 Langestraat 9120 Kallo','CoretteJosseaume@rhyta.com'),
+('cl005','Gareau','Tyson','305 Rue de Birmingham 9890 Dikkelvenne','TysonGareau@jourrapide.com'),
+('cl006','Labbé','Musette','216 Rue de Liège 4987 Lorcé','MusetteLabbe@armyspy.com'),
+('cl007','Huppé','Cheney','418 Pierre Delannoyplaats 9940 Ertvelde','CheneyHuppe@rhyta.com'),
+('cl008','Beaudry','Yves','427 Maskenstraat 8650 Klerken','YvesBeaudry@dayrep.com'),
+('cl009','Boutot','Arianne','485 Brixtonlaan 7160 Chapelle-lez-Herlaimont','ArianneBoutot@armyspy.com'),
+('cl010','Monjeau','Lothaire','340 Rue des Taillis 7863 Ghoy','LothairMonjeau@rhyta.com'),
+('cl011','Forest','Adrienne','327 Place Léopold 7050 Herchies','AdrienneForest@rhyta.com'),
+('cl012','Lacharité','Brunella','245 Rue de Bouillon 7830 Graty','BrunellaLacharite@jourrapide.com'),
+('cl013','Deschamps','Joseph','209 Mandemakersstraat 6666 Wibrin','JosephDeschamps@dayrep.com'),
+('cl014','Archambault','Fayette','318 Dijkstraat 9620 Elene','FayetteArchambault@dayrep.com'),
+('cl015','Ruais','Martin','145 Rue des Taillis 7041 Givry','MartinRuais@dayrep.com'),
+('cl016','Plaisance','Didier','472 Rue de la Poste 4557 Ramelot','DidierPlaisance@jourrapide.com'),
+('cl017','Lamontagne','Yolande','292 Rue de Fontigny 8972 Roesbrugge-Haringe','YolandeLamontagne@rhyta.com'),
+('cl018','Adler','Océane','433 Rue du Vert Galant 6830 Poupehan','OceaneAdler@dayrep.com'),
+('cl019','Lépicier','Pinabel','20 Rue des Tanneurs 7160 Piéton','PinabelLepicier@rhyta.com'),
+('cl020','Bérubé','Thérèse','405 Rue Bouhouille 3290 Schaffen','ThereseBerube@jourrapide.com');
+
 
 /*
-Donnée des Brasseurs
+Données de l'historique des commandes aléatoire et prévisioire.
 */
-INSERT INTO tbBrasseurs (brasseurId, brasseurNom, vilId)
+INSERT INTO tbHistoriques (commId,clientId,prixTot,quantTot) 
     VALUES
-    ('br01', 'Brasserie Orval', '6823'),
-    ('br02', 'Brasserie Westmalle', '2390'),
-    ('br03', 'Brasserie Alken', '3570'),
-    ('br04', 'Brasserie Artois', '3000'),
-    ('br05', 'Brasserie Bertinchamps', '5030'),
-    ('br06', 'Brasserie Du Bocq', '5530'),
-    ('br07', 'Brasserie Bosteels', '9255'),   
-    ('br08', 'Brasserie Caracole', '5500'),
-    ('br09', 'Brasserie De Konick', '2030'),
-    ('br10', 'Brasserie Du Clocher', '5020'),
-    ('br11', 'Brasserie Dubuisson', '7900'),
-    ('br12', 'Brasserie Duvel', '2870'),
-    ('br13', 'Brasserie de Abbaye de Notre Dame de Saint-Rémy', '5580'),
-    ('br14', 'Brasserie de Abbaye Notre-Dame de Scourmont', '6460');
+('co001','cl004', 29.09, 11),                                 // 3*b12 + 2*b01 +6*b08
+('co002','cl011', 11.95, 5),                                  // 5*b31
+('co003','cl007', 39.6, 24),                                  // 24*b41
+('co004','cl020', 11.88, 6),                                  // 6*b30
+('co005','cl001', 80.88, 18),                                 // 6*b07 + 6*b08 + 6*b09
+('co006','cl012', 26.42, 10),                                 // 6*b18 + 4*b33
+('co007','cl006', 27.48, 12),                                 // 12*b17
+('co008','cl003', 36.00, 24),                                 // 24*b06
+('co009','cl011', 47.04, 18),                                 // 6*b01 + 6*b30 + 6*b36
+('co010','cl019', 43.00, 20),                                 // 10*b43 + 5*b44 + 5*b45
+('co011','cl008', 28.55, 10),                                 // 5*b22 + 5*b23
+('co012','cl014', 128.68, 49),                                // 6*b30 + 6*b17 + b09 + 24*b07 + 6*b01
+('co013','cl016', 14.34, 6),                                  // 6*b31
+('co014','cl008', 62.04, 24);                                 // 6*b36 + 6*b37 + 6*b38 + 6*b39
+
+
+
