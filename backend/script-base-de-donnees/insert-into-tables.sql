@@ -98,3 +98,23 @@ INSERT INTO tbBieres(biereId, biereNom, biereCouleur, biereAlcool, biereVolume, 
  ('b46', 'Grimbergen Optimo Bruno', 'brune', 10, 33, 2.45, 'br03'),
  ('b47', 'Grimbergen Hiver', 'brune', 6.5, 33, 2.25, 'br03'),
  ('b48', 'Grimbergen Printemps', 'fruitée', 6.0, 33, 2.23, 'br03');
+
+/*
+Donnée des Brasseurs
+*/
+INSERT INTO tbBrasseurs (brasseurId, brasseurNom, vilId)
+    VALUES
+    ('br01', 'Brasserie Orval', '6823'),
+    ('br02', 'Brasserie Westmalle', '2390'),
+    ('br03', 'Brasserie Alken', '3570'),
+    ('br04', 'Brasserie Artois', '3000'),
+    ('br05', 'Brasserie Bertinchamps', '5030'),
+    ('br06', 'Brasserie Du Bocq', '5530'),
+    ('br07', 'Brasserie Bosteels', '9255'),   
+    ('br08', 'Brasserie Caracole', '5500'),
+    ('br09', 'Brasserie De Konick', '2030'),
+    ('br10', 'Brasserie Du Clocher', '5020'),
+    ('br11', 'Brasserie Dubuisson', '7900'),
+    ('br12', 'Brasserie Duvel', '2870'),
+    ('br13', 'Brasserie de Abbaye de Notre Dame de Saint-Rémy', '5580'),
+    ('br14', 'Brasserie de Abbaye Notre-Dame de Scourmont', '6460');
