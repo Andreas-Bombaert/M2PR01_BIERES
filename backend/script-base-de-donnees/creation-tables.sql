@@ -31,7 +31,7 @@ CREATE TABLE tbBieres(
     biereNom VARCHAR(30) NOT NULL,
     biereCouleur VARCHAR(15) NOT NULL, 
     biereAlcool DECIMAL(6,2) NULL,
-    biereVolume NUMERIC NOT NULL, 
+    biereVolume DECIMAL(6,2) NOT NULL, 
     bierePrix DECIMAL(6,2) NOT NULL,
     brasseurId char(4) NOT NULL,
     CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
