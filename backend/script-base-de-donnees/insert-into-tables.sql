@@ -43,6 +43,7 @@ VALUES
 ('2870', 'Puurs'),
 ('5580', 'Rochefort'),
 ('6460', 'Chimay');
+('6823', 'Orval');
 
 
 /*
