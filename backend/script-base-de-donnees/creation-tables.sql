@@ -14,7 +14,7 @@ Creation de la table contenant les brasseurs et les informations à propos de ce
 */
 CREATE TABLE tbBrasseurs(
     brasseurId CHAR(4) NOT NULL,                /*  br01,br02...  */
-    brasseurNom VARCHAR(30) NOT NULL,
+    brasseurNom VARCHAR(60) NOT NULL,
     vilId CHAR(4) NOT NULL,
     CONSTRAINT pk__Brasseurs PRIMARY KEY (brasseurId),
     CONSTRAINT fk__Brasseurs__tbVilles FOREIGN KEY (vilId) REFERENCES tbVilles (vilId)
