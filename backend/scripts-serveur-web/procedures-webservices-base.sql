@@ -26,8 +26,8 @@ END
 CREATE PROCEDURE "dba"."http_getCSS"(in url char(255))
 RESULT(css long varchar)
 BEGIN
-call sa_set_http_header( 'Content-Type', 'text/css'); // header http
-select xp_read_file(dba.getPath() || 'CSS\' || url); // renvoyer css
+call sa_set_http_header( 'Content-Type', 'text/css');
+select xp_read_file(dba.getPath() || 'CSS\' || url);
 END
 
 ---
@@ -35,7 +35,7 @@ END
 CREATE PROCEDURE "dba"."http_getJS"(in url char(255))
 RESULT(js long varchar)
 BEGIN
-call sa_set_http_header( 'Content-Type', 'text/javascript'); // header
+call sa_set_http_header( 'Content-Type', 'text/javascript');
 select xp_read_file(dba.getPath() || 'JS\' || url); // renvoyer js
 END
 
