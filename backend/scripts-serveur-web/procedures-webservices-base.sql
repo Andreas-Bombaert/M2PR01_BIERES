@@ -18,7 +18,7 @@ CREATE PROCEDURE "dba"."http_getPage"(in url char(255))
 RESULT(html long varchar)
 BEGIN
     call sa_set_http_header( 'Content-Type', 'text/html' );
-    select xp_read_file(dba.getPath() ||url|| '.html');
+    select xp_read_file(dba.getPath() ||url);
 END
 
 ---
@@ -67,9 +67,9 @@ END
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-CREATE SERVICE "root" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getPage('index');
+CREATE SERVICE "root" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getPage(:url);
 CREATE SERVICE "css" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getCSS(:url);
 CREATE SERVICE "js" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getJS(:url);
 CREATE SERVICE "img" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getIMG(:url);
 CREATE SERVICE "video" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getVideo(:url);
-
+CREATE SERVICE "html" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getPage(:url);
