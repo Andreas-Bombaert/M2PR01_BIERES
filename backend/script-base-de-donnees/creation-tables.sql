@@ -17,7 +17,7 @@ CREATE TABLE tbBrasseurs(
     brasseurNom VARCHAR(20) NOT NULL,
     vilId CHAR(4) NOT NULL,
     CONSTRAINT pk__Brasseurs PRIMARY KEY (brasseurId),
-    CONSTRAINT fk__Brasseurs FOREIGN KEY (vilId) REFERENCES tbVilles (vilId)
+    CONSTRAINT fk__Brasseurs__tbVilles FOREIGN KEY (vilId) REFERENCES tbVilles (vilId)
     on update CASCADE
     on delete restrict
 );
@@ -34,8 +34,8 @@ CREATE TABLE tbBieres(
     biereVolume NUMERIC NOT NULL, 
     bierePrix DECIMAL NOT NULL,
     brasseurId char(4) NOT NULL,
-    CONSTRAINT pk_tbBieres PRIMARY KEY (biereId),
-    CONSTRAINT fk_tbBieres FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
+    CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
+    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
     on update cascade
     on delete restrict
 );
@@ -65,7 +65,7 @@ CREATE TABLE tbHistoriques (
     quantTot INTEGER NOT NULL,
     "date" "datetime" NOT NULL DEFAULT getDate(),
     CONSTRAINT pk__tbHistoriques PRIMARY KEY (commId),
-    CONSTRAINT fk__tbHistoriques FOREIGN KEY (clientId) REFERENCES tbClients (clientId)
+    CONSTRAINT fk__tbHistoriques__tbClients FOREIGN KEY (clientId) REFERENCES tbClients (clientId)
     on update CASCADE
     on delete restrict
 );
