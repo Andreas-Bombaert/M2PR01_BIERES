@@ -27,7 +27,7 @@ CREATE PROCEDURE "dba"."http_getCSS"(in url char(255))
 RESULT(css long varchar)
 BEGIN
 call sa_set_http_header( 'Content-Type', 'text/css');
-select xp_read_file(dba.getPath() || 'CSS\' || url);
+select xp_read_file(dba.getPath() || 'css\' || url);
 END
 
 ---
@@ -35,8 +35,8 @@ END
 CREATE PROCEDURE "dba"."http_getJS"(in url char(255))
 RESULT(js long varchar)
 BEGIN
-call sa_set_http_header( 'Content-Type', 'text/javascript');
-select xp_read_file(dba.getPath() || 'JS\' || url); // renvoyer js
+call sa_set_http_header( 'Content-Type', 'application/javascript');
+select xp_read_file(dba.getPath() || 'js\' || url); // renvoyer js
 END
 
 ---
@@ -49,7 +49,7 @@ begin
  set extension = substr(url,CHARINDEX('.',url)+1);
  if extension = 'jpg' then set extension = 'jpeg' end if;
  call sa_set_http_header('Content-Type','image/' || extension);
- select xp_read_file(dba.getPath() || 'IMG\\' || url) 
+ select xp_read_file(dba.getPath() || 'img\\' || url) 
 --
 end
 
@@ -58,7 +58,7 @@ end
 CREATE PROCEDURE "dba"."http_getVideo"(in url char(255))
 result(html long varchar)
 BEGIN
-    call sa_set_http_header( 'Content-Type', 'text/html' );
+    call sa_set_http_header( 'Content-Type', 'video/mp4' );
     select xp_read_file(dba.getPath()||'video\' ||url);
 END
 
