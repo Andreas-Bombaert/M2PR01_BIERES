@@ -27,7 +27,7 @@ Auteur: Mathis Dory
 Creation de la table les bières et leurs attributs
 */
 CREATE TABLE tbBieres(
-    biereId CHAR(4) NOT NULL,               
+    biereId CHAR(3) NOT NULL,                   /* b01, b02, b03 ... */ 
     biereNom VARCHAR(30) NOT NULL,
     biereCouleur VARCHAR(15) NOT NULL, 
     biereAlcool DECIMAL NULL,
@@ -77,7 +77,7 @@ Creation de la table contenant les contenus des commandes
 CREATE TABLE tbVentes (
     commId char(5) NOT NULL,
     ligneNo INTEGER NOT NULL,
-    biereId char(4) NOT NULL,
+    biereId char(3) NOT NULL,
     prodQuant INTEGER NOT NULL,
     CONSTRAINT fk__tbVentes__tbHistoriques FOREIGN KEY (commId) REFERENCES tbHistoriques (commId)
     on update CASCADE
