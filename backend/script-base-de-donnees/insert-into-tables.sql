@@ -1,5 +1,5 @@
 /*
-Données des villes
+Données des villes ( par Eliott ),
 */
 INSERT INTO tbVilles (vilId, vilNom) 
 VALUES
@@ -19,7 +19,7 @@ VALUES
 ('6823', 'Orval');
 
 /*
-Donnée des Brasseurs
+Donnée des Brasseurs ( par Eliott ),
 */
 INSERT INTO tbBrasseurs (brasseurId, brasseurNom, vilId)
     VALUES
@@ -39,7 +39,7 @@ INSERT INTO tbBrasseurs (brasseurId, brasseurNom, vilId)
     ('br14', 'Brasserie de Abbaye Notre-Dame de Scourmont', '6460');
 
 /*
-Données du tableau des bières
+Données du tableau des bières ( par Mathis ),
 */
 INSERT INTO tbBieres(biereId, biereNom, biereCouleur, biereAlcool, biereVolume, bierePrix, brasseurId)
  VALUES
@@ -93,7 +93,7 @@ INSERT INTO tbBieres(biereId, biereNom, biereCouleur, biereAlcool, biereVolume, 
  ('b48', 'Grimbergen Printemps', 'fruitée', 6.0, 33, 2.23, 'br03');
  
 /*
-Insère une liste de clients aléatoires pour effectuer des tests
+Insère une liste de clients aléatoires pour effectuer des tests ( par Andréas ),
 */
 INSERT INTO tbClients(clientId,clientNom,clientPrenom,clientAdresse,clientMail)
 VALUES
@@ -120,7 +120,7 @@ VALUES
 
 
 /*
-Données de l'historique des commandes aléatoire et prévisioire.
+Données de l'historique des commandes aléatoire et prévisioire. ( par Cédric ),
 */
 INSERT INTO tbHistoriques (commId,clientId,prixTot,quantTot) 
     VALUES
@@ -140,7 +140,7 @@ INSERT INTO tbHistoriques (commId,clientId,prixTot,quantTot)
 ('co014','cl008', 62.04, 24);                                 // 6*b36 + 6*b37 + 6*b38 + 6*b39
 
 /*
-Donnée des ventes.
+Donnée des ventes. ( par Cédric ),
 */
 INSERT INTO tbVentes (commId,ligneNo,biereId,prodQuant) 
     VALUES
