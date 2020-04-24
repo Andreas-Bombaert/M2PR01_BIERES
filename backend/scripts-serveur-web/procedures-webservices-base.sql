@@ -55,11 +55,14 @@ end
 
 ---
 
-CREATE PROCEDURE "dba"."http_getVideo"(in url char(255))
-result(html long varchar)
+CREATE PROCEDURE "DBA"."http_getVideo"(in url char(100))
+RESULT (video long binary)
 BEGIN
-    call sa_set_http_header( 'Content-Type', 'video/mp4' );
-    select xp_read_file(dba.getPath()||'video\' ||url);
+    declare extension long varchar;
+    set extension = substr(url,CHARINDEX('.',url)+1); // récupère l'extention
+    if extension = 'ogv' then set extension = 'ogg' end if; //adapte MIME pour ogg
+    call sa_set_http_header('Content-Type', 'video/' || extension);
+    select xp_read_file("DBA"."getPath"() || 'video\' || url);
 END
 
 --------------------------------------------------------------------------------------------------------------------------------------
