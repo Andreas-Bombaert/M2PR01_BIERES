@@ -3,7 +3,7 @@ Auteur: Eliott Lepage
 Creation de la table contenant les villes et leurs id associés
 */
 CREATE TABLE tbVilles (
-    vilId CHAR(4) NOT NULL,
+    vilId CHAR(4) NOT NULL,                     /* code Postal */
     vilNom VARCHAR(20) NOT NULL,
     CONSTRAINT pk__Villes PRIMARY KEY (vilId)
 );
@@ -13,7 +13,7 @@ Auteur: Eliott Lepage
 Creation de la table contenant les brasseurs et les informations à propos de ceux-ci
 */
 CREATE TABLE tbBrasseurs(
-    brasseurId CHAR(3) NOT NULL,
+    brasseurId CHAR(4) NOT NULL,                /*  br01,br02...  */
     brasseurNom VARCHAR(20) NOT NULL,
     vilId CHAR(4) NOT NULL,
     CONSTRAINT pk__Brasseurs PRIMARY KEY (brasseurId),
@@ -27,13 +27,13 @@ Auteur: Mathis Dory
 Creation de la table les bières et leurs attributs
 */
 CREATE TABLE tbBieres(
-    biereId CHAR(4) NOT NULL,
+    biereId CHAR(4) NOT NULL,               
     biereNom VARCHAR(30) NOT NULL,
     biereCouleur VARCHAR(15) NOT NULL, 
     biereAlcool DECIMAL NULL,
     biereVolume NUMERIC NOT NULL, 
     bierePrix DECIMAL NOT NULL,
-    brasseurId char(3) NOT NULL,
+    brasseurId char(4) NOT NULL,
     CONSTRAINT pk_tbBieres PRIMARY KEY (biereId),
     CONSTRAINT fk_tbBieres FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
     on update cascade
@@ -46,7 +46,7 @@ Auteur: Andréas Bombaert
 Creation de la table contenant une liste de clients (et leurs informations) prédéfinie afin de faire des tests
 */
 CREATE TABLE tbClients(
-    clientId char(4) NOT NULL,
+    clientId char(5) NOT NULL,              /* cl001, cl002, cl003 ... */
     clientNom VARCHAR(20) NOT NULL,
     clientPrenom VARCHAR(20) NOT NULL,
     clientAdresse VARCHAR(50) NOT NULL,
@@ -59,8 +59,8 @@ Auteur: Cedric De Dryver
 Creation de la table contenant l'historique des commandes passées
 */
 CREATE TABLE tbHistoriques (
-    commId char(5) NOT NULL,
-    clientId char(4) NOT NULL,
+    commId char(5) NOT NULL,                /* co001, co002, co003 ... */
+    clientId char(5) NOT NULL,
     prixTot decimal(6,2) NOT NULL,
     quantTot INTEGER NOT NULL,
     "date" "datetime" NOT NULL DEFAULT getDate(),
