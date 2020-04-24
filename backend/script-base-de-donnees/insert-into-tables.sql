@@ -15,7 +15,7 @@ VALUES
 ('7900', 'Leuze-en-Hainaut'),
 ('2870', 'Puurs'),
 ('5580', 'Rochefort'),
-('6460', 'Chimay');
+('6460', 'Chimay'),
 ('6823', 'Orval');
 
 /*
@@ -175,6 +175,4 @@ INSERT INTO tbVentes (commId,ligneNo,biereId,prodQuant)
 ('co014', 2, 'b37', 6),
 ('co014', 3, 'b38', 6),
 ('co014', 4, 'b39', 6);
-
-
 
