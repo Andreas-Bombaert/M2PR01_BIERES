@@ -1,4 +1,11 @@
-/*Fonction pour aller chercher les valeurs et id des brasseurs et les injecter dans le select de la page catalogue*/
+/**
+ * Date: 25-04-2020
+ * @author Andréas Bombaert
+ *
+ * fonction qui récupère les noms des brasseurs et leurs Id afin de les injecter
+ * dans le select du formulaire de commandes
+ */
+
 function initBrasseurs(){
     let xhr= new XMLHttpRequest();
     xhr.open('get','initBrasseurs');
