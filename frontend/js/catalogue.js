@@ -2,6 +2,10 @@
  * Date: 25-04-2020
  * @author Mathis Dory
  */
+/**
+ * Date: 25-04-2020
+ * @author Mathis Dory
+ */
 "use strict";
 
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
@@ -25,17 +29,69 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
 }
 
 function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string, string, number, number, number, number} sont les données se trouvant dans le formulaire de recherche.
-    let xhr = new XMLHttpRequest();                             
+    let xhr = new XMLHttpRequest();
     if (couleur == "allColors" && brasserie != "allBr"){
+        switch (true) {
+            case pMin == "":
+                pMin=1.5;
+            case pMax == "":
+                pMax= 18.99;
+            case dMin == "":
+                dMin = 4.5;
+            case dMax == "":
+                dMax = 12;
+                break;
+            default:
+                alert("Les valeurs attribuées n'ont pas pu charger");
+        }
         xhr.open('get', "http://localhost/allColors?brasserie="+brasserie+"&pMin="+pMin+"&pMax="+pMax+"&dMin="+dMin+"&dMax="+dMax, true);
     }
     else if (couleur != "allColors" && brasserie == "allBr"){
+        switch (true) {
+            case pMin == "":
+                pMin=1.5;
+            case pMax == "":
+                pMax= 18.99;
+            case dMin == "":
+                dMin = 4.5;
+            case dMax == "":
+                dMax = 12;
+                break;
+            default:
+                alert("Les valeurs attribuées n'ont pas pu charger");
+        }
         xhr.open('get', "http://localhost/allBr?couleur="+couleur+"&pMin="+pMin+"&pMax="+pMax+"&dMin="+dMin+"&dMax="+dMax, true);
     }
     else if (couleur == "allColors" && brasserie == "allBr"){
+        switch (true) {
+            case pMin == "":
+                pMin=1.5;
+            case pMax == "":
+                pMax= 18.99;
+            case dMin == "":
+                dMin = 4.5;
+            case dMax == "":
+                dMax = 12;
+                break;
+            default:
+                alert("Les valeurs attribuées n'ont pas pu charger");
+        }
         xhr.open('get', "http://localhost/allBrAllColors?pMin="+pMin+"&pMax="+pMax+"&dMin="+dMin+"&dMax="+dMax, true);
     }
     else{
+        switch (true) {
+            case pMin == "":
+                pMin=1.5;
+            case pMax == "":
+                pMax= 18.99;
+            case dMin == "":
+                dMin = 4.5;
+            case dMax == "":
+                dMax = 12;
+                break;
+            default:
+                alert("Les valeurs attribuées n'ont pas pu charger");
+        }
         xhr.open('get', "http://localhost/biereTrie?couleur="+couleur+"&brasserie="+brasserie+"&pMin="+pMin+"&pMax="+pMax+"&dMin="+dMin+"&dMax="+dMax, true);
     }
     xhr.onload=
@@ -59,6 +115,28 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string
 function envoyerForm(){
     let formulaire = gid("formBiere");
     triBiere(formulaire.couleurBiere.value, formulaire.brasserieBiere.value, formulaire.prixBiereMin.value, formulaire.prixBiereMax.value, formulaire.alcoolMin.value, formulaire.alcoolMax.value);
+}
+
+/**
+ * Date: 25-04-2020
+ * @author Andréas Bombaert
+ *
+ * fonction qui récupère les noms des brasseurs et leurs Id afin de les injecter
+ * dans le select du formulaire de commandes
+ */
+
+function initBrasseurs(){
+    let xhr= new XMLHttpRequest();
+    xhr.open('get','initBrasseurs');
+    xhr.onload=function(){
+        let parsed=JSON.parse(xhr.responseText);
+        let str="<option value='allBr'>Toutes</option>";
+        for(let x of parsed){
+            str+="<option value='"+x.brasseurId+"'>"+x.brasseurNom+"</option>";
+        }
+        document.getElementById("brasserieBiere").innerHTML=str;
+    };
+    xhr.send();
 }
 
 /**
