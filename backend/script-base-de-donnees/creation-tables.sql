@@ -51,6 +51,7 @@ CREATE TABLE tbClients(
     clientPrenom VARCHAR(20) NOT NULL,
     clientAdresse VARCHAR(50) NOT NULL,
     clientMail VARCHAR(50) NOT NULL,
+    clientPassword VARCHAR(20) NOT NULL,
     CONSTRAINT pk__Clients PRIMARY KEY (clientId)
 );
 
