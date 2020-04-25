@@ -10,5 +10,5 @@ BEGIN
     order by brasseurNom ASC;
 END
 
-//Creation du service
+/*Creation du service*/
 CREATE SERVICE "initBrasseurs" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.init_brasseurs();
