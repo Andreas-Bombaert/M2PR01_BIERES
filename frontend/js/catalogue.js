@@ -121,7 +121,8 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string
                     "<span class='prixBiere'>"+ i.prix + "€</span></div>" +
                     "<div id='formAjout"+i.id+"'>" +
                     "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+"); return false;'>" +
-                    "<input id='inputNombre"+i.id+"' class='cbBiere' type='number' min='1' placeholder='0' step='1'><input type='submit' name='qtt' value='Ajouter' class='ajoutBiere'></form></div></div>";  //Contruction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
+                    "<input id='inputNombre"+i.id+"' class='cbBiere' type='number' name='qtt' min='1' placeholder='0' step='1'>
+                    <input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>";  //Contruction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
 
             }
 
