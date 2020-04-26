@@ -25,7 +25,7 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
                     "<span class='brasserieBiere'>"+ i.brasserie +"</span><br>" +
                     "<span class='prixBiere'>"+ i.prix + "€</span></div>" +
                     "<div id='formAjout"+i.id+"'>" +
-                    "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+");'>" +
+                    "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+"); return false;'>" +
                     "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='1' step='1'>" +
                     "<input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>"; //Construction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
             }
