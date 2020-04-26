@@ -1,0 +1,57 @@
+body{
+     background-image: url("../img/fondBlanc.jpg");
+ }
+
+header{
+    background-color: whitesmoke;
+}
+
+h1, h2{
+    font-family: "Franklin Gothic Medium", sans-serif;
+}
+
+.contenuP{
+    background-color: whitesmoke;
+    font-family:  Verdana, sans-serif;
+}
+
+footer{
+    text-align: center;
+    font-size: 1em;
+}
+
+footer img{
+    width: 40px;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-family: Verdana, sans-serif;
+    padding: 5px;
+}
+nav a:hover {
+    color: black;
+}
+
+nav{
+    background-color: dimgrey;
+    position: relative;
+    width: 100%;
+}
+
+nav li {
+    float: right;
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    list-style-type: none;
+    text-align: center;
+    position: relative;
+    top: -75px;
+    width: 8%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+nav img{
+}
