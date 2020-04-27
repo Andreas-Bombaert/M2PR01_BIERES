@@ -13,4 +13,4 @@ BEGIN
     where mail = clientMail AND motDePasse = clientPassword
 END
 
-CREATE SERVICE "history" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getIdentifiant(:mail,:mdp);
+CREATE SERVICE "connexion" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getIdentifiant(:mail,:mdp);
