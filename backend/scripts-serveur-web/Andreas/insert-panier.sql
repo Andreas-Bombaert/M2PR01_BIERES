@@ -1,4 +1,4 @@
-//modifier en fonction de comment on appelera la table panier
+/*modifier en fonction de comment on appelera la table panier*/
 
 CREATE PROCEDURE "dba"."proc_insert_panier"(in bId char(3), in qtt integer)
 BEGIN 
