@@ -2,6 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <script src="js/catalogue.js"></script>
+    <script src="js/utilitaire.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Catalogue</title>
     <meta name="description" content="Projet de fin d'année bac1">
     <meta name="keywords" content="bières, belgique, commande, alcool, boisson">
@@ -10,80 +13,87 @@
     <meta name="Cédric" content="De Dryver">
     <meta name="Andréas" content="Bombaert">
 </head>
-<body>
+<body onload="initPage()">
     <!-- Page entière -->
     <div id="container">
         <!-- En tête de page -->
         <header>
             <!-- Titre de la page -->
-            <div>
+            <div class="titrePage">
                 <h1>Catalogue</h1>
             </div>
             <!-- Menu de navigation -->
             <nav>
+                <img src="img/mib.png" alt="Made in Belgium">
                 <ul>
-                    <!-- Index -->
+                    <!-- Panier -->
                     <li>
-                        <a href="index.html" title="Qui sommes nous ?">Accueil</a>
+                        <a href="commande.html" title="Commandez vos bières.">Commander</a>
                     </li>
                     <!-- Catalogue -->
                     <li>
                         <a href="catalogue.html" title="Découvrez notre catalogue de bières.">Nos bières</a>
                     </li>
-                    <!-- Commande & Panier -->
+                    <!-- Accueil -->
                     <li>
-                        <a href="commande.html" title="Commandez vos bières.">Commander</a>
+                        <a href="index.html" title="Qui sommes nous ?">Accueil</a>
                     </li>
                 </ul>
             </nav>
         </header>
         <!-- Contenu principal -->
-        <div>
-            <form id="formBiere">
-                <fieldset>Trouvez des bières: <br>
-                    <label for="couleurBiere">Couleur: </label>
-                    <select id="couleurBiere">
-                        <option value="allColors">Toutes</option>
-                        <option value="ambrée">Ambrée</option>
-                        <option value="blanche">Blanche</option>
-                        <option value="blonde">Blonde</option>
-                        <option value="brune">Brune</option>
-                        <option value="fruitée">Fruitée</option>
-                    </select><br>
-                    <label for="brasserieBiere">Brasserie: </label>
-                    <select id="brasserieBiere">
-                        <option value="allBr">Toutes</option>
-                        <option value="br01">Brasserie Orval</option>
-                        <option value="br02">Brasserie Westmalle</option>
-                        <option value="br03">Brasserie Alken</option>
-                        <option value="br04">Brasserie Artois</option>
-                        <option value="br05">Brasserie Bertinchamps</option>
-                        <option value="br06">Brasserie Du Bocq</option>
-                        <option value="br07">Brasserie Bosteels</option>
-                        <option value="br08">Brasserie Caracole</option>
-                        <option value="br09">Brasserie De Konick</option>
-                        <option value="br10">Brasserie Du Clocher</option>
-                        <option value="br11">Brasserie Dubuisson</option>
-                        <option value="br12">Brasserie Duvel</option>
-                        <option value="br13">Brasserie de Abbaye de Notre Dame de Saint-Rémy</option>
-                        <option value="br14">Brasserie de Abbaye Notre-Dame de Scourmont</option>
-                    </select><br>
-                    <label for="prixBièreMin">Prix minimum: </label>
-                    <input type="number" id="prixBièreMin" min="1.50" max="18.99" step="0.01" placeholder="1,5"><br>
-                    <label for="prixBièreMax">Prix maximum: </label>
-                    <input type="number" id="prixBièreMax" min="1.50" max="18.99" step="0.01" placeholder="18,99"><br>
-                    <label for="alcoolMin">Degré maximum: </label>
-                    <input type="number" id="alcoolMin"  min="4.5" max="12" step="0.1" placeholder="4,5"><br>
-                    <label for="alcoolMax">Degré maximum: </label>
-                    <input type="number" id="alcoolMax"  min="4.5" max="12" step="0.1" placeholder="12"><br>
-                    <input type="submit" value="Rechercher">
-                    <input type="reset" value="Supprimer">
-                </fieldset>
-            </form>
+        <div class="contenuP">
+            <!-- Formulaire de recherche -->
+            <div>
+                <form id="formBiere" action=# onsubmit="envoyerForm(this); return false;">
+                    <fieldset>Trouvez des bières: <br>
+                        <label for="couleurBiere">Couleur: </label>
+                        <select id="couleurBiere">
+                            <option value="allColors">Toutes</option>
+                            <option value="ambrée">Ambrée</option>
+                            <option value="blanche">Blanche</option>
+                            <option value="blonde">Blonde</option>
+                            <option value="brune">Brune</option>
+                            <option value="fruitée">Fruitée</option>
+                        </select><br>
+                        <label for="brasserieBiere">Brasserie: </label>
+                        <select id="brasserieBiere">
+                            <option value="allBr">Toutes</option>
+                            <option value="br01">Brasserie Orval</option>
+                            <option value="br02">Brasserie Westmalle</option>
+                            <option value="br03">Brasserie Alken</option>
+                            <option value="br04">Brasserie Artois</option>
+                            <option value="br05">Brasserie Bertinchamps</option>
+                            <option value="br06">Brasserie Du Bocq</option>
+                            <option value="br07">Brasserie Bosteels</option>
+                            <option value="br08">Brasserie Caracole</option>
+                            <option value="br09">Brasserie De Konick</option>
+                            <option value="br10">Brasserie Du Clocher</option>
+                            <option value="br11">Brasserie Dubuisson</option>
+                            <option value="br12">Brasserie Duvel</option>
+                            <option value="br13">Brasserie de Abbaye de Notre Dame de Saint-Rémy</option>
+                            <option value="br14">Brasserie de Abbaye Notre-Dame de Scourmont</option>
+                        </select><br>
+                        <label for="prixBiereMin">Prix minimum: </label>
+                        <input type="number" id="prixBiereMin"  pattern="" min="1.50" max="18.99" step="0.01" placeholder="1,5"><br>
+                        <label for="prixBiereMax">Prix maximum: </label>
+                        <input type="number" id="prixBiereMax" min="1.50" max="18.99" step="0.01" placeholder="18,99"><br>
+                        <label for="alcoolMin">Degré minimum: </label>
+                        <input type="number" id="alcoolMin"  min="4.5" max="12" step="0.1" placeholder="4,5"><br>
+                        <label for="alcoolMax">Degré maximum: </label>
+                        <input type="number" id="alcoolMax"  min="4.5" max="12" step="0.1" placeholder="12"><br>
+                        <input type="submit" value="Rechercher">
+                        <input type="reset" value="Supprimer">
+                    </fieldset>
+                </form>
+            </div>
+            <!-- div du catalogue -->
+            <div id="catalogue">
+            </div>
         </div>
         <!-- Pied de page -->
         <footer>
-            <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, EPHEC - <a href="sitemap.html">SiteMap</a>.</small>
+            <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, <img src="img/ephec.jpg" alt="logo EPHEC">- <a href="sitemap.html">SiteMap</a>.</small>
         </footer>
     </div>
 </body>

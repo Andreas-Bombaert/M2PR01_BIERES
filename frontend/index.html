@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="description" content="Projet de fin d'année bac1">
     <meta name="keywords" content="bières, belgique, commande, alcool, boisson">
     <meta name="Mathis" content="Dory">
@@ -16,36 +17,37 @@
         <!-- En tête de page -->
        <header>
             <!-- Titre de la page -->
-            <div>
+            <div class="titrePage">
                 <h1>M2Pro01 - Les bières belges</h1>
             </div>
            <!-- Menu de navigation -->
            <nav>
+               <img src="img/mib.png" alt="Made in Belgium">
                <ul>
-                   <!-- Index -->
+                   <!-- Panier -->
                   <li>
-                        <a href="index.html" title="Qui sommes nous ?">Accueil</a>
+                      <a href="commande.html" title="Commandez vos bières.">Commander</a>
                   </li>
                    <!-- Catalogue -->
                    <li>
                         <a href="catalogue.html" title="Découvrez notre catalogue de bières.">Nos bières</a>
                    </li>
-                   <!-- Commande & Panier -->
+                   <!-- Accueil -->
                    <li>
-                        <a href="commande.html" title="Commandez vos bières.">Commander</a>
+                       <a href="index.html" title="Qui sommes nous ?">Accueil</a>
                    </li>
                </ul>
            </nav>
        </header>
         <!-- Contenu principal -->
-        <div>
+        <div class="contenuP">
             <!-- Texte de présentation du site -->
             <section>
                 <p>
-                    Bienvenue sur le site <strong>M2Pro01 - Les bières belges</strong>.<br>
+                    Bienvenue sur le site <strong>M2Pro01 - Les bières belges</strong>.<br><br>
                     Nous sommes 4 étudiants en première année d'informatique à l'EPHEC et pour notre projet de fin d'année, nous vous proposons un catalogue de 48 bières 100% <strong>belges</strong>
-                    que vous pouvez commander. Nos bières sont livrées à domicile en 7 jours ouvrés et sont disponnibles uniquement en bouteille. Les bouteilles sont vendues à l'unité et sont disponnibles
-                    en 25cl, 30cl, 33cl, 50cl et 75 cl toutes nos bières ont un volume unique et ne sont disponnible que dans ce volume là. Nous vendons des bières blondes, blanches, brunes, ambrées et fruitées.
+                    que vous pouvez commander.<br><br> Nos bières sont livrées à domicile en 7 jours ouvrés et sont disponnibles uniquement en bouteille. Les bouteilles sont vendues à l'unité et sont disponnibles
+                    en 25cl, 33cl, 50cl et 75 cl toutes nos bières ont un volume unique et ne sont disponnible que dans ce volume là. Nous vendons des bières blondes, blanches, brunes, ambrées et fruitées.
                     Si vous avez la moindre question ou réclamation merci de nous contacter via notre mail de l'ephec.
                 </p><br>
                 <h2>Étudiants:</h2>
@@ -63,21 +65,21 @@
                         De Dryver Cédric
                     </li>
                 </ul>
-                <p>
+                <p class="fictif">
                     Ce site est <strong>fictif</strong> nous ne vendons rien en réalité il ne s'agit que d'un projet comme stipulé plus haut.
                 </p>
             </section>
             <! -- vidéo -->
-            <div>
+            <div class="video">
                 <video width="600" height="340" poster="img/poster.png" id="videoBiere" controls>
                     <source src="video/patrimoine.mp4" type="video/mp4">
-                    <p>Votre navigateur ne permet pas la lecture de vidéos !</p>
+                    <p>Votre navigateur ne permet pas la lecture de vidéo !</p>
                 </video>
             </div>
         </div>
         <!-- Pied de page -->
         <footer>
-            <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, EPHEC - <a href="sitemap.html">SiteMap</a>.</small>
+            <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, <img src="img/ephec.jpg" alt="logo EPHEC"> - <a href="sitemap.html">SiteMap</a>.</small>
         </footer>
     </div>
 </body>
