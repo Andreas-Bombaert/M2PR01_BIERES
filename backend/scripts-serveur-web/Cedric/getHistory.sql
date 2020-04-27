@@ -38,4 +38,4 @@ end
  ---
 /* Service pour recevoir le code JSON ( 'get'  '/history?id=co001' ).*/
 
-CREATE SERVICE "history" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getHistory(:id);
+CREATE SERVICE "getHistory" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getHistory(:id);
