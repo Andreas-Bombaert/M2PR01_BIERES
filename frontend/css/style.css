@@ -1,57 +1,162 @@
 body{
-     background-image: url("../img/fondBlanc.jpg");
- }
+    background-image: url("../img/fondBlanc.jpg");
+}
 
 header{
+    position: relative;
     background-color: whitesmoke;
 }
-
 h1, h2{
-    font-family: "Franklin Gothic Medium", sans-serif;
+    font-family: "Franklin Gothic Medium", Impact, sans-serif;
 }
+
+nav{
+    position: absolute;
+    background-color: dimgrey;
+    height: 150px;
+    width: 100%;
+}
+#mid{
+    position: absolute;
+    top: 50px;
+    width: 250px;
+    left: 5%;
+    border: solid 2px black;
+    box-shadow: 4px 4px lightgray;
+}
+
+nav li{
+    margin-top: 50px;
+    float: right;
+    list-style-type: none;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+nav li:nth-child(1){
+    margin-right: 50px;
+
+}
+
+nav a{
+    color: lightgray;
+    text-decoration: none;
+    font-family: "Franklin Gothic Medium", Impact, sans-serif;
+    font-size: 25px;
+    border: solid 1px beige;
+    border-radius: 15px;
+    padding: 0 0.15em;
+    width: 7em;
+    display: inline-block;
+    text-align: center;
+}
+
+nav a:hover{
+    color: crimson;
+}
+
+nav a:active{
+    color: black;
+}
+
 
 .contenuP{
+    font-family: Verdana, sans-serif;
+    margin-top: 250px;
     background-color: whitesmoke;
-    font-family:  Verdana, sans-serif;
+    text-align: justify;
 }
 
 footer{
+    font-style: italic;
     text-align: center;
-    font-size: 1em;
 }
 
 footer img{
     width: 40px;
 }
 
-nav a {
-    color: whitesmoke;
-    text-decoration: none;
-    font-family: Verdana, sans-serif;
-    padding: 5px;
+.video{
+    float: right;
+    margin-top: -500px;
+    margin-right: 5%;
+    clear: both;
 }
-nav a:hover {
+
+.fictif{
+    margin-top: 250px;
+    text-align: center;
+}
+
+.etudiant{
+    border: solid 1px gray;
+    text-align: center;
+    margin-right: 70%;
+    position: relative;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+.etudiant ul li{
+    list-style-type: none;
+}
+
+#formBiere input, #formBiere select{
+    border-radius: 1px;
+    width: 200px;
+    text-align: center;
+    float: right;
+    clear: right;
+    margin-right: 38%;
+    text-align: center;
+
+}
+
+label{
+    float: left;
+    clear: left;
+    margin-left: 40%;
+}
+
+#formBiere select{
+    width: 375px;
+}
+#formBiere input{
+    margin-right: 41%;
+}
+
+#formBiere input[type='submit']{
+    background-color: lightgray;
+    float: left;
+    width: 110px;
+    margin-left: 40%;
+
+}
+
+#formBiere input[type='reset']{
+    background-color:lightgray;
+    width: 110px;
+    margin-right: 43%;
+    float: right;
+}
+
+.titreForm{
+    text-decoration: underline;
+    margin-left: 51.5%;
+}
+
+.data{
     color: black;
 }
 
-nav{
-    background-color: dimgrey;
-    position: relative;
-    width: 100%;
-}
-
-nav li {
-    float: right;
-    border: solid 1px whitesmoke;
-    border-radius: 10px;
-    list-style-type: none;
+.sectionUneBiere {
+    border: solid 1px black;
+    margin-right: 92.255%;
     text-align: center;
-    position: relative;
-    top: -75px;
-    width: 8%;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+    background-color: darkgrey;
 
-nav img{
+
+}
+.sectionUneBiere input[type='number']{
+    width:40px;
 }
