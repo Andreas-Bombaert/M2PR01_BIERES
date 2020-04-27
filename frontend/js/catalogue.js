@@ -135,21 +135,45 @@ function initBrasseurs(){
 }
 
 
-//ajoute la bière dans le panier de commande en fonction des quantités demandées
+/**
+ *@author: Andréas Bombaert
+ *
+ * @param biere, nom de la biere
+ * @param id, de la biere
+ * @param brasserie, de la biere
+ * @param volume,
+ * @param qtt,  quantite souhaitee par le client
+ * @param prix, de la biere
+ *
+ * fonction qui ajoute la bière et la quantité demandée dans la table "panier" de la database
+ */
 function addBr(biere,id,brasserie,volume,qtt,prix){
+    //-----partie inutile mais permet de garder une idée de la commande totale
     let found=false;
     for(let x of Object.keys(recapCommande)){
         if(id===x){
             found=true;
             recapCommande[id].quantite+=parseInt(qtt);
+
         }
     }
     if(found===false){
-        recapCommande[id]={biere:biere,brasserie:brasserie,volume:volume,quantite:parseInt(qtt),prix:prix};
+        recapCommande[id]={biere:biere,brasserie:brasserie,volume:volume,quantite:parseInt(qtt),prix:prix,id:id};
     }
+    //-----
 
+    let url='insertPanier?bId='+id+'&qtt='+qtt;
+    let xhr = new XMLHttpRequest();
+    xhr.open('get',url);
+    xhr.onload=function(){
+        console.log(url);
+    };
+    xhr.onerror=function(){console.log("error");}
+    xhr.send();
+    
     console.log(recapCommande);
-    return false;
+    
+    //return false;
 }
 
 
