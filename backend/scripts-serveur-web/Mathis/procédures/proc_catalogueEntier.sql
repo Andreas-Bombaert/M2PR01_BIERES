@@ -1,4 +1,4 @@
-CREATE SSPROCEDURE "DBA"."proc_catalogueEntier"()
+CREATE PROCEDURE "DBA"."proc_catalogueEntier"()
 RESULT (id char(3), biere varchar(30), couleur varchar(15), alcool decimal(3,1), volume decimal(4,2), brasserie varchar(60), prix decimal(4,2))
 BEGIN
     call sa_set_http_header('Access-Control-Allow-Origin','*');
