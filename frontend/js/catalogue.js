@@ -112,6 +112,7 @@ function envoyerForm(){
     let formulaire = gid("formBiere");
     triBiere(formulaire.couleurBiere.value, formulaire.brasserieBiere.value, formulaire.prixBiereMin.value, formulaire.prixBiereMax.value, formulaire.alcoolMin.value, formulaire.alcoolMax.value);
 }
+
 /**
  * Date: 25-04-2020
  * @author Andréas Bombaert
