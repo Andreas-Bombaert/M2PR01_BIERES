@@ -5,15 +5,15 @@ function connexionHistorique(form){
 
     let clientId ="";
     let mayStop = false;
-    let jsonClient,jsonHistorique,jsonVentes;
+    let jsonClient,jsonHistorique = {},jsonVentes = {};
     let strRetour ="";
+    let keyJsonHistorique = [];
 
 
     let xhr =  new XMLHttpRequest();
     xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
-    xhr.onload = function xhrjsoned1(){
+    xhr.onload = function (){
         jsonClient = JSON.parse(xhr.responseText);
-        console.log(jsonClient);
         if(Object.keys(jsonClient).length === 0){
 
             document.querySelector('#recuHistorique').innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
@@ -22,7 +22,6 @@ function connexionHistorique(form){
         else{
             clientId = String(jsonClient[0].clientId);
         }
-
     };
     xhr.send();
 
@@ -30,36 +29,45 @@ function connexionHistorique(form){
         return false;
     }
 
-    xhr.open('get','getHistory?code='+clientId,true);
-    xhr.onload= function historique(e){
-        let jsoned = xhr.responseText;
-        jsonHistorique = JSON.parse(jsoned);
-        console.log(jsonHistorique);
-        e = jsonHistorique;
-        return jsonHistorique;
-    };
-    console.log(jsonHistorique); /** TODO: SQL GROUP BY **/
+    xhr = new XMLHttpRequest();
+    xhr.open('get','getHistory?code='+clientId,false);
+    xhr.onload= function (){
+        jsonHistorique= Object.assign(jsonHistorique,JSON.parse(xhr.responseText));
+        };
     xhr.send();
-    console.log(jsonHistorique+'BBBBBBB');
-    /*
-        strRetour +="<table>"+"<thead><th>Id de la commande</th><th>Objet commandé</th><th>Quantité</th><th>Prix Total</th><th>Quantité Totale</th> </thead>";
 
-        let xhr3 = new XMLHttpRequest();
+    keyJsonHistorique = Object.keys(jsonHistorique);
 
-        for(let i in jsonHistorique) {
+    if(keyJsonHistorique.length === 0){
+        gid("recuHistorique").innerHTML = "Vous avez passé 0 commande sur notre site.";
+        return false;
+    }
 
-            strRetour += "<tr><td></td><td></td><td>" + jsonHistorique[i].commId + "</td><td>" + jsonHistorique[i].prixTot + "€ </td><td>" + jsonHistorique[i].quantTot + "</td></tr>";
+    strRetour +="<table>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th></th> </thead>";
+    for(let i in jsonHistorique) {
+        strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>" + jsonHistorique[i].commId + "</td>"
+            + "<td>" + jsonHistorique[i].prixTot + "€ </td>"
+            + "<td>" + jsonHistorique[i].quantTot +"</td>"
+            + "<td id= detail_"+jsonHistorique[i].commId+"></td></tr>";
+    }
+    gid("recuHistorique").innerHTML = strRetour;
 
-            xhr3.open('get','getVentes?id='+jsonHistorique[i].commId, true);
+    for(let i in jsonHistorique){
+        let detailStr = "";
+        xhr = new XMLHttpRequest();
+        xhr.open('get','getVentes?id='+jsonHistorique[i].commId,false);
+        xhr.onload= function(){
+            jsonVentes= Object.assign(jsonVentes,JSON.parse(xhr.responseText));
+        };
+        xhr.send();
 
-            xhr3.onload= function(){
-                jsonVentes = JSON.parse(xhr3.responseText);
-                for(let j in jsonVentes){
-                    strRetour +="<tr><td></td><td></td><td>jsonVentes[j].biereId</td><td>jsonVentes[j].prodQuant</td><td></td><td></td></tr>";
-                }
-            xhr3.send();
-            }
+        detailStr+="<details><summary>Details produit</summary>";
+        for(let j in jsonVentes){
+            detailStr+= "Produit = "+jsonVentes[j].biereId+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
         }
-        gid("recuHistorique").innerHTML = strRetour;*/
+        detailStr+="</details>";
+        gid("detail_"+jsonHistorique[i].commId+"").innerHTML = detailStr;
+    }
+
     return false;
 }
