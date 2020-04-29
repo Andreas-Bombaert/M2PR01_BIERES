@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Historique des commandes.</title>
+    <script src="js/historique.js"></script>
+    <script src="js/utilitaire.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Historique des commandes</title>
     <meta name="description" content="Projet de fin d'année bac1">
     <meta name="keywords" content="bières, belgique, commande, alcool, boisson">
     <meta name="Mathis" content="Dory">
     <meta name="Eliott" content="Lepage">
     <meta name="Cédric" content="De Dryver">
     <meta name="Andréas" content="Bombaert">
-    <script src="js/utilitaire.js"></script>
-    <script src="js/historique.js"></script>
 </head>
 <body>
 <!-- Page entière -->
@@ -20,11 +20,11 @@
     <header>
         <!-- Titre de la page -->
         <div class="titrePage">
-            <h1>Commandez des bières</h1>
+            <h1>Historique</h1>
         </div>
         <!-- Menu de navigation -->
         <nav>
-            <img src="img/mib.png" alt="Made in Belgium">
+            <img id="mid" src="img/mib.png" alt="Made in Belgium">
             <ul>
                 <!-- Panier -->
                 <li>
@@ -45,11 +45,8 @@
             </ul>
         </nav>
     </header>
-    <!-- Contenu principal -->
-    <div class="contenuP">
-
     </div>
-    <div id="historiqueCommande">
+    <div id="historiqueCommande" class="contenuP">
         <div id="connexionHistorique">
             <form id="formulaire_connexion" action=# onsubmit="connexionHistorique(this); return false;">
                 <fieldset>
@@ -76,6 +73,5 @@
     <footer>
         <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, <img src="img/ephec.jpg" alt="logo EPHEC"> - <a href="sitemap.html">SiteMap</a>.</small>
     </footer>
-</div>
 </body>
 </html>
