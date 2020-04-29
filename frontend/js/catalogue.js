@@ -4,6 +4,8 @@
  */
 "use strict";
 
+let recapCommande={};
+
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
