@@ -112,6 +112,26 @@ footer img{
 
 }
 
+div#catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    clear: both;
+    width: initial;
+    margin: 0.5em;
+    padding: 20em;
+}
+.sectionUneBiere {
+    border: solid 1px black;
+    margin: .25em;
+    text-align: center;
+    background-color: darkgrey;
+    width: 15em;
+    padding: 0.25em;
+    position: relative;
+    height: auto;
+}
+
 label{
     float: left;
     clear: left;
@@ -147,16 +167,22 @@ label{
 
 .data{
     color: black;
-}
-
-.sectionUneBiere {
-    border: solid 1px black;
-    margin-right: 92.255%;
-    text-align: center;
-    background-color: darkgrey;
-
+    padding: 0.25em;
+    height: 10em;
 
 }
+
 .sectionUneBiere input[type='number']{
     width:40px;
+}
+
+.sectionUneBiere img{
+    border: solid 2px lightslategray;
+}
+
+.nomBiere{
+    font-family: fantasy;
+}
+.brasserieBiere{
+    font-style: italic;
 }
