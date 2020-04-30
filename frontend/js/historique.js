@@ -1,15 +1,29 @@
+/**
+ * Auth : Cédric De Dryver
+ *
+ * Affiche l'historique d'achat de bière du client selon son identifiant  (mail) et son mot de passe (mdp)
+ *
+ * Affiche une erreur (historique.js:33) si il y a une erreur de connexion ou un message (historique.js:66) si le client n'a rien commandé sur le site.
+ *
+ * @param form
+ * @returns False (Afin de ne pas refresh la page)
+ */
 
 function connexionHistorique(form){
-
-    /*<--- VARIABLES --->*/
+    /**<--- VARIABLES --->*/
 
     let clientId ="";
     let mayStop = false;
     let jsonClient,jsonHistorique = {},jsonVentes = {};
     let strRetour ="";
+    let strDetail ="";
     let keyJsonHistorique = [];
 
-
+    /**
+     * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
+     * @type {XMLHttpRequest}
+     * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
+     */
     let xhr =  new XMLHttpRequest();
     xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
     xhr.onload = function (){
@@ -25,9 +39,20 @@ function connexionHistorique(form){
     };
     xhr.send();
 
+    /**
+     * Permet l'arret du programme si les identifiant sont faux.
+     */
     if(mayStop === true){
         return false;
     }
+
+
+    /**
+     * Va recevoir l'Id de la commande necessaire pour voir les produit qui ont été acheté dans la table Vente.
+     *
+     * @type {XMLHttpRequest}
+     * @result : un strRetour qui s'affichera dans la balise div id="recuHistorique" la commande au niveau global (ID, prix total et quantité totale).
+     */
 
     xhr = new XMLHttpRequest();
     xhr.open('get','getHistory?code='+clientId,false);
@@ -39,7 +64,7 @@ function connexionHistorique(form){
     keyJsonHistorique = Object.keys(jsonHistorique);
 
     if(keyJsonHistorique.length === 0){
-        gid("recuHistorique").innerHTML = "Vous avez passé 0 commande sur notre site.";
+        gid("recuHistorique").innerHTML = "Vous avez passé aucune commande sur notre site.";
         return false;
     }
 
@@ -52,8 +77,15 @@ function connexionHistorique(form){
     }
     gid("recuHistorique").innerHTML = strRetour;
 
+
+    /**
+     *  Va afficher dans la balise déroulante Details les details de la commande (produit et quantité commandé).
+     *
+     * @type {XMLHttpRequest}
+     * @result : un strDetail qui s'affichera dans une partie du tableau td id=detail_coXXX avec les produit et leur quantité respective commandé).
+     */
     for(let i in jsonHistorique){
-        let detailStr = "";
+        strDetail = "";
         xhr = new XMLHttpRequest();
         xhr.open('get','getVentes?id='+jsonHistorique[i].commId,false);
         xhr.onload= function(){
@@ -61,12 +93,12 @@ function connexionHistorique(form){
         };
         xhr.send();
 
-        detailStr+="<details><summary>Details produit</summary>";
+        strDetail +="<details><summary>Details produit</summary>";
         for(let j in jsonVentes){
-            detailStr+= "Produit = "+jsonVentes[j].biereId+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
+            strDetail+= "Produit = "+jsonVentes[j].biereId+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
         }
-        detailStr+="</details>";
-        gid("detail_"+jsonHistorique[i].commId+"").innerHTML = detailStr;
+        strDetail+="</details>";
+        gid("detail_"+jsonHistorique[i].commId+"").innerHTML = strDetail;
     }
 
     return false;
