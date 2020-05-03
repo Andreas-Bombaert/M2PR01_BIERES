@@ -1,5 +1,15 @@
 /*
 Auteur: Eliott Lepage
+Création de la table panier contenant la quantité de bières achetées ainsi que son id
+*/
+CREATE TABLE "DBA"."tbPanier" (
+	"biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
+	"quantite" INTEGER NOT NULL,
+	CONSTRAINT "pk__tbPanier" PRIMARY KEY ( "biereId" ASC )
+);
+
+/*
+Auteur: Eliott Lepage
 Creation de la table contenant les villes et leurs id associés
 */
 CREATE TABLE tbVilles (
