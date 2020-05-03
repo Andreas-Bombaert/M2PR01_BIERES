@@ -1,13 +1,14 @@
-CREATE TABLE tbBieres(
-biereId CHAR(3) NOT NULL,
-biereNom VARCHAR(30) NOT NULL,
-biereCouleur VARCHAR(15) NOT NULL, 
-biereAlcool DECIMAL NULL,
-biereVolume NUMERIC NOT NULL, 
-bierePrix DECIMAL NOT NULL,
-brasseurId char(4) NOT NULL,
-CONSTRAINT pk_tbBieres PRIMARY KEY (biereId),
-CONSTRAINT fk_tbBieres FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
-on update cascade
-on delete restrict
+CREATE TABLE tbBieres (
+    biereId CHAR(3) NOT NULL,                   /* b01, b02, b03 ... */ 
+    biereNom VARCHAR(30) NOT NULL,
+    biereCouleur VARCHAR(15) NOT NULL, 
+    biereAlcool DECIMAL(3,1) NULL,
+    biereVolume DECIMAL(4,2) NOT NULL, 
+    bierePrix DECIMAL(4,2) NOT NULL,
+    brasseurId char(4) NOT NULL,
+    CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
+    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId ),
+    CONSTRAINT fk__tbBieres__tbPanier FOREIGN KEY ( biereId ) REFERENCES tbPanier ( biereId )
+    ON UPDATE CASCADE 
+    ON DELETE RESTRICT
 );
