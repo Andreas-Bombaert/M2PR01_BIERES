@@ -26,7 +26,7 @@ CREATE TABLE tbBrasseurs(
 Auteur: Mathis Dory
 Creation de la table les bières et leurs attributs
 */
-CREATE TABLE tbBieres(
+CREATE TABLE tbBieres (
     biereId CHAR(3) NOT NULL,                   /* b01, b02, b03 ... */ 
     biereNom VARCHAR(30) NOT NULL,
     biereCouleur VARCHAR(15) NOT NULL, 
@@ -35,9 +35,10 @@ CREATE TABLE tbBieres(
     bierePrix DECIMAL(4,2) NOT NULL,
     brasseurId char(4) NOT NULL,
     CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
-    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
-    on update cascade
-    on delete restrict
+    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId ),
+    CONSTRAINT fk__tbBieres__tbPanier FOREIGN KEY ( biereId ) REFERENCES tbPanier ( biereId )
+    ON UPDATE CASCADE 
+    ON DELETE RESTRICT
 );
   
   
