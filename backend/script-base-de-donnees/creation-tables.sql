@@ -5,7 +5,6 @@ Création de la table panier contenant la quantité de bières achetées ainsi q
 CREATE TABLE "DBA"."tbPanier" (
     "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
     "quantite" INTEGER NOT NULL,
-    CONSTRAINT "pk__tbPanier" PRIMARY KEY ( "biereId" ),
     CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId )
 );
 
@@ -47,7 +46,7 @@ CREATE TABLE tbBieres (
     bierePrix DECIMAL(4,2) NOT NULL,
     brasseurId char(4) NOT NULL,
     CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
-    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId ),
+    CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId )
     ON UPDATE CASCADE 
     ON DELETE RESTRICT
 );
