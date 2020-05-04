@@ -202,15 +202,3 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
     
     //return false;
 }
-
-
-
-function initCommande(){
-    let str="";
-    for(let x of Object.keys(recapCommande)){
-        str+="<td>"+x.nom+"</td><td>"+x.brasserie+"</td><td>"+x.volume+"</td><td>"+x.quantite+"</td><td>"+(x.quantite*x.prix)+"</td>";
-    }
-
-
-    document.getElementById("tabResultats").innerHTML=str;
-}
