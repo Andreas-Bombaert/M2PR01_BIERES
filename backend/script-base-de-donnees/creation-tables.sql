@@ -3,9 +3,10 @@ Auteur: Eliott Lepage
 Création de la table panier contenant la quantité de bières achetées ainsi que son id
 */
 CREATE TABLE "DBA"."tbPanier" (
-    "biereId" CHAR(3) NOT NULL,
+    "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
     "quantite" INTEGER NOT NULL,
-    CONSTRAINT "pk__tbPanier" PRIMARY KEY ( "biereId" )
+    CONSTRAINT "pk__tbPanier" PRIMARY KEY ( "biereId" ),
+    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbPanier ( biereId )
 );
 
 
@@ -16,8 +17,7 @@ Creation de la table contenant les villes et leurs id associés
 CREATE TABLE tbVilles (
     vilId CHAR(4) NOT NULL,                     /* code Postal */
     vilNom VARCHAR(20) NOT NULL,
-    CONSTRAINT pk__Villes PRIMARY KEY (vilId),
-    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbPanier ( biereId )
+    CONSTRAINT pk__Villes PRIMARY KEY (vilId)
 );
 
 /*
