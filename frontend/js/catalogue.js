@@ -1,3 +1,8 @@
+/**
+ * Date: 25-04-2020
+ * @author Mathis Dory
+ */
+"use strict";
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
