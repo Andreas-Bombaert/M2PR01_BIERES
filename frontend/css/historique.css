@@ -9,7 +9,7 @@ header{
 h1, h2{
     font-family: "Franklin Gothic Medium", Impact, sans-serif;
 }
-h1 .h1_style{
+.h1_style{
     font-family: "Franklin Gothic Medium", Impact, sans-serif;
     display: block;
     font-size: 2em;
@@ -18,6 +18,11 @@ h1 .h1_style{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+    margin-top: none;
+    margin-bottom: none;
+    font-weight: none;
+
+
 }
 
 nav{
