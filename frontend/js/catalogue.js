@@ -126,7 +126,9 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string
                     "<input id='inputNombre"+i.id+"' class='cbBiere' type='number' name='qtt' min='1' placeholder='0' step='1'> " +
                     "<input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>" //Contruction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
             }
-
+            if (uneBiere == ""){
+                uneBiere = "<div id='erreurRecherche'><p>Il n'y a pas de résultats correspondant à votre recherche.</p></div>";
+            }
             gid("catalogue").innerHTML = uneBiere;
         };
     xhr.send();
