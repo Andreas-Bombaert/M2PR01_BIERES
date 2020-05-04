@@ -3,6 +3,9 @@
  * @author Mathis Dory
  */
 "use strict";
+
+let recapCommande={};
+
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
@@ -180,8 +183,8 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
     };
     xhr.onerror=function(){console.log("error");}
     xhr.send();
-    
+
     console.log(recapCommande);
-    
+
     //return false;
 }
