@@ -2,11 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <title>Historique des commandes</title>
     <script src="js/historique.js"></script>
     <script src="js/utilitaire.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <title>Historique des commandes</title>
+    <link rel="stylesheet" type="text/css" href="css/historique.css">
     <meta name="description" content="Projet de fin d'année bac1">
     <meta name="keywords" content="bières, belgique, commande, alcool, boisson">
     <meta name="Mathis" content="Dory">
@@ -21,7 +21,7 @@
     <header>
         <!-- Titre de la page -->
         <div class="titrePage">
-            <h1>Historique</h1>
+            <h1 class="h1_style">Historique</h1>
         </div>
         <!-- Menu de navigation -->
         <nav>
@@ -48,24 +48,28 @@
     </header>
     </div>
     <div id="historiqueCommande" class="contenuP">
-        <div id="connexionHistorique">
-            <form id="formulaire_connexion" action=# onsubmit="connexionHistorique(this); return false;">
-                <fieldset>
-                    <legend>Formulaire de Connexion</legend>
+        <div class="row">
+            <div class="col-md-2"></div>
+                <div id="connexionHistorique" class="col-md-6">
+                    <form id="formulaire_connexion" class="form-group" action=# onsubmit="connexionHistorique(this); return false;">
+                        <fieldset>
+                             <legend>Formulaire de Connexion</legend>
 
-                    <!-- adresse mail du client -->
-                    <label for="mail">Adresse E-mail : </label>
-                    <input id="mail" name="mail" type="email" required placeholder="prénom.nom@gmail.com" value="AdrienneForest@rhyta.com"><br><br>
+                                <!-- adresse mail du client -->
+                                <label for="mail" class="form-check-label text-left text-md-left">Adresse E-mail : </label><br><br>
+                                <input id="mail" name="mail" type="email" class="form-control" required placeholder="prénom.nom@gmail.com" value="AdrienneForest@rhyta.com"><br><br>
 
-                    <!-- nom du client-->
-                    <label for="mdp">Mot de passe : </label>
-                    <input id="mdp" name="mdp" type="password" required placeholder="Mot de passe" value="cl011"><br><br>
+                                <!-- nom du client-->
+                                <label for="mdp" class="form-check-label text-left text-md-left">Mot de passe : </label><br><br>
+                                <input id="mdp" name="mdp" type="password" class="form-control" required placeholder="Mot de passe" value="cl011"><br><br>
 
-                    <!-- Button d'envoie des données client -->
-                    <input class="btn btn-primary" type="submit" value="Voir mon historique">
-                </fieldset>
-            </form>
+                                <!-- Button d'envoie des données client -->
+                                <input class="btn btn-primary" type="submit" value="Voir mon historique">
+                         </fieldset>
+                    </form>
+                </div>
         </div>
+        <div class="col-md-4"></div>
         <div id="recuHistorique">
 
         </div>

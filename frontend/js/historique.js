@@ -68,7 +68,7 @@ function connexionHistorique(form){
         return false;
     }
 
-    strRetour +="<table>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th></th> </thead>";
+    strRetour +="<table class='table table-striped'>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th></th> </thead>";
     for(let i in jsonHistorique) {
         strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>" + jsonHistorique[i].commId + "</td>"
             + "<td>" + jsonHistorique[i].prixTot + "€ </td>"
