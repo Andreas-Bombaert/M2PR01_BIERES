@@ -1,16 +1,5 @@
 /*
 Auteur: Eliott Lepage
-Création de la table panier contenant la quantité de bières achetées ainsi que son id
-*/
-CREATE TABLE "DBA"."tbPanier" (
-    "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
-    "quantite" INTEGER NOT NULL,
-    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId )
-);
-
-
-/*
-Auteur: Eliott Lepage
 Creation de la table contenant les villes et leurs id associés
 */
 CREATE TABLE tbVilles (
@@ -51,6 +40,15 @@ CREATE TABLE tbBieres (
     ON DELETE RESTRICT
 );
   
+/*
+Auteur: Eliott Lepage
+Création de la table panier contenant la quantité de bières achetées ainsi que son id
+*/
+CREATE TABLE "DBA"."tbPanier" (
+    "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
+    "quantite" INTEGER NOT NULL,
+    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId )
+);
   
 /*
 Auteur: Andréas Bombaert
