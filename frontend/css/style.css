@@ -162,7 +162,8 @@ label{
 
 .titreForm{
     text-decoration: underline;
-    margin-left: 51.5%;
+    margin-left: 40%;
+    font-weight: bold;
 }
 
 .data{
@@ -185,4 +186,12 @@ label{
 }
 .brasserieBiere{
     font-style: italic;
+}
+
+#erreurRecherche{
+    color: darkred;
+    font-size: 1.5em;
+    text-decoration: underline;
+    text-align: center;
+    margin-left: 30%;
 }
