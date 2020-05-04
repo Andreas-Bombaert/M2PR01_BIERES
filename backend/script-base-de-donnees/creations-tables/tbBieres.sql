@@ -8,7 +8,6 @@ CREATE TABLE tbBieres (
     brasseurId char(4) NOT NULL,
     CONSTRAINT pk__tbBieres PRIMARY KEY (biereId),
     CONSTRAINT fk__tbBieres__tbBrasseurs FOREIGN KEY ( brasseurId ) REFERENCES tbBrasseurs ( brasseurId ),
-    CONSTRAINT fk__tbBieres__tbPanier FOREIGN KEY ( biereId ) REFERENCES tbPanier ( biereId )
     ON UPDATE CASCADE 
     ON DELETE RESTRICT
 );
