@@ -195,3 +195,10 @@ label{
     text-align: center;
     margin-left: 30%;
 }
+
+#image {
+    background-image: url('../img/croix_rouge_32.png');
+    background-repeat: no-repeat;
+    width: 38px;
+    height: 38px;
+}
