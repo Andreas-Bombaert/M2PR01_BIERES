@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire de commande</title>
+    <title>Récapitulatif</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="description" content="Projet de fin d'année bac1">
     <meta name="keywords" content="bières, belgique, commande, alcool, boisson">
@@ -10,16 +10,16 @@
     <meta name="Eliott" content="Lepage">
     <meta name="Cédric" content="De Dryver">
     <meta name="Andréas" content="Bombaert">
-    <script src="js/historique.js"></script>
+    <script src="js/commande.js"></script>
 </head>
-<body>
+<body onload="panier();">
     <!-- Page entière -->
     <div id="container">
         <!-- En tête de page -->
         <header>
             <!-- Titre de la page -->
             <div class="titrePage">
-                <h1>Commandez des bières</h1>
+                <h1>Récapitulatif de commande</h1>
             </div>
             <!-- Menu de navigation -->
             <nav>
@@ -46,30 +46,11 @@
         </header>
         <!-- Contenu principal -->
         <div class="contenuP">
-
+            <div>
+                <table border="1" cellpadding="10" cellspacing="1" id="tableauPanier">
+                </table>
+            </div>
         </div>
-        <div id="historiqueCommande">
-            <div id="connexionHistorique">
-            <form id="formulaire_connexion" action=# onsubmit="connexionHistorique(this);">
-                <fieldset>
-                    <legend>Formulaire de Connexion</legend>
-
-                    <!-- adresse mail du client -->
-                    <label for="mail">Adresse E-mail : </label>
-                    <input id="mail" name="mail" type="email" required placeholder="prénom.nom@gmail.com"><br><br>
-
-                    <!-- nom du client-->
-                    <label for="mdp">Mot de passe : </label>
-                    <input id="mdp" name="mdp" type="password" required placeholder="Mot de passe"><br><br>
-
-                    <!-- Button d'envoie des données client -->
-                    <input type="submit" value="Voir mon historique">
-                </fieldset>
-            </form>
-            </div>
-            <div id="recuHistorique">
-
-            </div>
         </div>
         <!-- Pied de page -->
         <footer>
