@@ -1,6 +1,9 @@
 /*
+auth : Cédric De Dryver
+
 Procedure et service pour avoir les identifiants (et verifier qu'ils sont bon).
 
+Retourne le clientId
 */
 
 
@@ -12,5 +15,7 @@ BEGIN
     select clientMail, clientPassword, clientId from tbClients
     where mail = clientMail AND motDePasse = clientPassword
 END
+
+/* Service pour la procedure getIdentifiant /getIdentifiant?mail=xxx@xxx.com&mdp?xxxx */
 
 CREATE SERVICE "connexion" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getIdentifiant(:mail,:mdp);
