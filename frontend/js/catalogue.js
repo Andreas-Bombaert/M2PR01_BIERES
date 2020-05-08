@@ -35,7 +35,7 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
             gid("catalogue").innerHTML = uneBiere;              // ici, place simplement la réponse dans un élément de la page
         };
     xhr.send();
-
+    gid("panierActuel").innerText=panier;
 }
 
 function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string, string, number, number, number, number} sont les données se trouvant dans le formulaire de recherche.
