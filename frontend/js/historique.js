@@ -10,14 +10,17 @@
  */
 
 function connexionHistorique(form){
+
     /**<--- VARIABLES --->*/
 
     let clientId ="";
     let mayStop = false;
-    let jsonClient,jsonHistorique = {},jsonVentes = {};
+    let jsonClient,jsonHistorique = {},jsonVentes = {}, jsonBieres = {}, jsonBiereNom = {};
     let strRetour ="";
     let strDetail ="";
     let keyJsonHistorique = [];
+
+
 
     /**
      * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
@@ -68,14 +71,32 @@ function connexionHistorique(form){
         return false;
     }
 
-    strRetour +="<table class='table table-striped'>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th></th> </thead>";
+    strRetour +="<table class='table table-striped'>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th>Date</th><th></th> </thead>";
     for(let i in jsonHistorique) {
         strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>" + jsonHistorique[i].commId + "</td>"
             + "<td>" + jsonHistorique[i].prixTot + "€ </td>"
-            + "<td>" + jsonHistorique[i].quantTot +"</td>"
+            + "<td>" + jsonHistorique[i].quantTot + "</td>"
+            + "<td>" + jsonHistorique[i].date.substr(0,19) + "</td>"
             + "<td id= detail_"+jsonHistorique[i].commId+"></td></tr>";
     }
     gid("recuHistorique").innerHTML = strRetour;
+
+    /**
+     * Créé un tableau de toutes les biere,avec biereId en clé et biereNom correspondant au biereId.
+     *
+      * @type {XMLHttpRequest}
+     */
+    
+    xhr = new XMLHttpRequest();
+    xhr.open('get','getBieres', false);
+    xhr.onload= function(){
+        jsonBieres = Object.assign(jsonBieres,JSON.parse(xhr.responseText));
+    };
+    xhr.send();
+    for(let i in jsonBieres){
+        jsonBiereNom[jsonBieres[i].biereId] = jsonBieres[i].biereNom;
+    }
+    console.log(jsonBiereNom);
 
 
     /**
@@ -95,7 +116,7 @@ function connexionHistorique(form){
 
         strDetail +="<details><summary>Details produit</summary>";
         for(let j in jsonVentes){
-            strDetail+= "Produit = "+jsonVentes[j].biereId+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
+            strDetail+= "Produit = "+jsonBiereNom[jsonVentes[j].biereId]+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
         }
         strDetail+="</details>";
         gid("detail_"+jsonHistorique[i].commId+"").innerHTML = strDetail;
