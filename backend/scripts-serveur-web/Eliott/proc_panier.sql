@@ -6,7 +6,7 @@ avec les informations les concernant (biereId, biereNom, biereAlcool et quantit√
 
 */
 
-ALTER PROCEDURE "DBA"."proc_panier"()
+CREATE PROCEDURE "DBA"."proc_panier"()
 RESULT (idBiere char(3), nomBiere char(30), alcoolBiere INTEGER, volumeBiere INTEGER, prixBiere INTEGER, quantitBiere INTEGER, prixTotal INTEGER)
 BEGIN 
     CALL sa_set_http_header('Access-Control-Allow-Origin','*');
