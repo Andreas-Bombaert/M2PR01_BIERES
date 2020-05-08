@@ -6,5 +6,5 @@ BEGIN
     select biereId, biereNom, biereCouleur, biereAlcool, biereVolume, brasseurNom, bierePrix from dba.tbBieres as biere
     join dba.tbBrasseurs as brasseur on biere.brasseurId = brasseur.brasseurId 
     where biereCouleur = couleur AND biere.brasseurId = brasserie AND (bierePrix BETWEEN pMin AND pMax) AND (biereAlcool BETWEEN dMin AND dMax)
-    order by brasseur.brasseurId ASC;
+    order by biere.biereNom ASC;
 END

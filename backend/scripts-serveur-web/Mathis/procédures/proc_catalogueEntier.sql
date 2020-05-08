@@ -5,5 +5,5 @@ BEGIN
     call sa_set_http_header('Content-Type','application/json');
     select biereId, biereNom, biereCouleur, biereAlcool, biereVolume, brasseurNom, bierePrix from dba.tbBieres as biere
     join dba.tbBrasseurs as brasseur on biere.brasseurId = brasseur.brasseurId 
-    order by brasseur.brasseurId ASC;
+    order by biere.biereNom ASC;
 END
