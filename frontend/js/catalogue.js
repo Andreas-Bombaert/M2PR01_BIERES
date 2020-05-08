@@ -5,7 +5,7 @@
 "use strict";
 
 let recapCommande={};
-
+let panier=0;
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
@@ -171,6 +171,8 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
         }
     }
     if(found===false){
+        panier++;
+        gid("panierActuel").innerText=panier;
         recapCommande[id]={biere:biere,brasserie:brasserie,volume:volume,quantite:parseInt(qtt),prix:prix,id:id};
     }
     //-----
