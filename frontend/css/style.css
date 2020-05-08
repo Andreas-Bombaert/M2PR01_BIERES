@@ -101,13 +101,13 @@ footer img{
     list-style-type: none;
 }
 
-#formBiere input, #formBiere select{
+#formBiere input, #formBiere select, #mail, #mdp{
     border-radius: 1px;
     width: 200px;
     text-align: center;
     float: right;
     clear: right;
-    margin-right: 38%;
+    margin-right: 55em;
     text-align: center;
 
 }
@@ -119,7 +119,7 @@ div#catalogue {
     clear: both;
     width: initial;
     margin: 0.5em;
-    padding: 20em;
+    padding: 5em 20em 20em 20em;
 }
 .sectionUneBiere {
     border: solid 1px black;
@@ -142,22 +142,20 @@ label{
     width: 375px;
 }
 #formBiere input{
-    margin-right: 41%;
+    margin-right: 44%;
 }
 
 #formBiere input[type='submit']{
-    background-color: lightgray;
-    float: left;
-    width: 110px;
-    margin-left: 40%;
-
+    width: 205px;
+}
+#formBiere input[type='reset']{
+    width: 205px;
 }
 
-#formBiere input[type='reset']{
-    background-color:lightgray;
-    width: 110px;
-    margin-right: 43%;
-    float: right;
+#boutonAction{
+    background-color: lightgray;
+    display: inline;
+    margin-top: 7%;
 }
 
 .titreForm{
@@ -203,16 +201,29 @@ label{
     height: 38px;
 }
 
-.h1_style{
-    font-family: "Franklin Gothic Medium", Impact, sans-serif;
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    margin-top: none;
-    margin-bottom: none;
-    font-weight: none;
+#boutonHisto{
+    margin-left: 50%;
+    background-color: lightgray;
+}
+
+legend{
+    text-align: center;
+    border: gray 1px solid;
+}
+
+#tableauPanier{
+    text-align: center;
+    empty-cells: hide;
+    border: black solid 1px;
+    border-collapse: collapse;
+    padding: 5em;
+    margin-left: 25em;
+}
+
+#laTable{
+    padding: 5em;
+}
+
+.vide{
+    display: none;
 }
