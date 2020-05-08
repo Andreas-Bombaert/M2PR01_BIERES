@@ -105,10 +105,22 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string
             let reponse = JSON.parse(xhr.responseText);
             let uneBiere= "";
             for(let i of reponse){
-                uneBiere += "<div class='sectionUneBiere'><div class='photoBiere'><img id='photo" + i.id +"' src='../img/" + i.id + ".jpg' alt='"+ i.biere +"'></div><div class='data'>" + "<span class='nomBiere'>" + i.biere +"</span><br><span class='couleurBiere'>" + i.couleur +
-                    "</span><br><span class='alcoolBiere'>"+ i.alcool +"°</span><br><span class='volumebière'>"+ i.volume +"cl</span><br><span class='brasserieBiere'>"+ i.brasserie +"</span><br><span class='prixBiere'>"+ i.prix + "€</span></div>" +
-                    "<div id='formAjout"+i.id+"'><form><input id='inputNombre"+i.id+"' class='cbBiere' type='number' min='1' placeholder='0' step='1'><input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>";  //Contruction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
-
+                uneBiere +=
+                    "<div class='sectionUneBiere'>" +
+                    "<div class='photoBiere'>" +
+                    "<img id='photo" + i.id +"' src='../img/" + i.id + ".jpg' alt='"+ i.biere +"'>" +
+                    "</div>" +
+                    "<div class='data'>" + "" +
+                    "<span class='nomBiere'>" + i.biere + "</span><br>" +
+                    "<span class='couleurBiere'>" + i.couleur + "</span><br>" +
+                    "<span class='alcoolBiere'>"+ i.alcool +"°</span><br>" +
+                    "<span class='volumebière'>"+ i.volume +"cl</span><br>" +
+                    "<span class='brasserieBiere'>"+ i.brasserie +"</span><br>" +
+                    "<span class='prixBiere'>"+ i.prix + "€</span></div>" +
+                    "<div id='formAjout"+i.id+"'>" +
+                    "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+"); return false;'>" +
+                    "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='1' step='1'>" +
+                    "<input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>"; //Construction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
             }
             if (uneBiere == ""){
                 uneBiere = "<div id='erreurRecherche'><p>Il n'y a pas de résultat pour les critères sélectionnés.</p></div>";
