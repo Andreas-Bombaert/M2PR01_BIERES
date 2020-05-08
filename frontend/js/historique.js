@@ -71,13 +71,16 @@ function connexionHistorique(form){
         return false;
     }
 
-    strRetour +="<table class='table table-striped'>"+"<thead><th>Id de la commande</th><th>Prix Total</th><th>Quantité Totale</th><th>Date</th><th></th> </thead>";
+    strRetour +="<table class='table table-striped'>"+"<thead><th>Liste</th><th>Reference</th><th>Prix Total</th><th>Quantité Totale</th><th>Date</th><th></th> </thead>";
+    let count = 1;
     for(let i in jsonHistorique) {
-        strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>" + jsonHistorique[i].commId + "</td>"
+        strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>"+ count +"</td>"
+            + "<td>" + jsonHistorique[i].commId + "</td>"
             + "<td>" + jsonHistorique[i].prixTot + "€ </td>"
             + "<td>" + jsonHistorique[i].quantTot + "</td>"
             + "<td>" + jsonHistorique[i].date.substr(0,19) + "</td>"
             + "<td id= detail_"+jsonHistorique[i].commId+"></td></tr>";
+        count++;
     }
     gid("recuHistorique").innerHTML = strRetour;
 
@@ -86,7 +89,7 @@ function connexionHistorique(form){
      *
       * @type {XMLHttpRequest}
      */
-    
+
     xhr = new XMLHttpRequest();
     xhr.open('get','getBieres', false);
     xhr.onload= function(){
@@ -96,8 +99,6 @@ function connexionHistorique(form){
     for(let i in jsonBieres){
         jsonBiereNom[jsonBieres[i].biereId] = jsonBieres[i].biereNom;
     }
-    console.log(jsonBiereNom);
-
 
     /**
      *  Va afficher dans la balise déroulante Details les details de la commande (produit et quantité commandé).
