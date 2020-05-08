@@ -1,4 +1,11 @@
 
+/*
+auth : Cédric
+
+Procedure et service pour l'onglet Historique.
+
+Retourne 
+*/
 
 
 CREATE PROCEDURE "DBA"."getBiereNom"()
