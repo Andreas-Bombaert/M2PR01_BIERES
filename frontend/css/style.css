@@ -140,6 +140,7 @@ label{
 
 #formBiere select{
     width: 375px;
+    margin-right: 44%; 
 }
 #formBiere input{
     margin-right: 44%;
