@@ -37,7 +37,7 @@ function panier () {
     };
     xhr.send();
 }
-*/
+
 
 /* Crée des erreurs, à regarder ensemble demain (08/05/20) 
 function supprimer() {
