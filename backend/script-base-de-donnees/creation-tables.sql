@@ -44,12 +44,14 @@ CREATE TABLE tbBieres (
 Auteur: Eliott Lepage
 Création de la table panier contenant la quantité de bières achetées ainsi que son id
 */
-CREATE TABLE "DBA"."tbPanier" (
+CREATE TABLE "DBA"."tbPanier"(
+    "clientId" CHAR(5) NOT NULL,
     "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
     "quantite" INTEGER NOT NULL,
-    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId )
+    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId ),
+    CONSTRAINT fk__tbPanier__tbClients FOREIGN KEY ( clientId ) REFERENCES tbClients ( clientId )
 );
-  
+
 /*
 Auteur: Andréas Bombaert
 Creation de la table contenant une liste de clients (et leurs informations) prédéfinie afin de faire des tests
