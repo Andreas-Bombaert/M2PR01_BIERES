@@ -189,7 +189,7 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
     }
     //-----
 
-    let url='insertPanier?bId='+id+'&qtt='+qtt;
+    let url='insertPanier?bId='+id+'&qtt='+qtt+"&cId=cl001";
     let xhr = new XMLHttpRequest();
     xhr.open('get',url);
     xhr.onload=function(){

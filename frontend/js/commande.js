@@ -1,3 +1,4 @@
+
 /**
  * @author Eliott LEPAGE
  * @date 07/05/20
@@ -10,13 +11,13 @@
  * @result : Une table récapitulative des bières
  */
 "use strict";
-function panier () {
+function panier(clientId) {
 
     var montantTotal = 0;  // montantTotal : calcule la somme des montants totaux de toute les bières commandées
 
     /* **** appel AJAX **** */
     let xhr = new XMLHttpRequest();                                          // création d'un objet servant à effectuer la requête Ajax
-    xhr.open('get','http://localhost/panier',false);      // type (GET), l'url et l'asynchrone de la requête (false)
+    xhr.open('get','http://localhost/panier?cId='+clientId,false);      // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function() {                                   // définit la fonction à exécuter lorsque la réponse arrivera (callback)
         let parse = JSON.parse(xhr.responseText);
         let longueur = parse.length;
@@ -113,4 +114,53 @@ function toutSupprimer () {
     document.querySelector(".row").remove();
     panier();       // refresh de la page
 }
+
+
+
+function connexion() {
+
+
+    document.getElementById("connexion").innerHTML = "<div id=\"connexionHistorique\">\n" +
+        "    <form id=\"formulaire_connexion\" action=# onsubmit=\"connexionCommande(this); return false;\">\n" +
+        "    <fieldset>\n" +
+        "    <legend>Formulaire de Connexion</legend>\n" +
+        "<!-- adresse mail du client -->\n" +
+        "<label for=\"mail\">Adresse E-mail : </label>\n" +
+        "<input id=\"mail\" name=\"mail\" type=\"email\" required placeholder=\"prénom.nom@gmail.com\" value=\"AdrienneForest@rhyta.com\"><br>\n" +
+        "    <!-- nom du client-->\n" +
+        "<label for=\"mdp\">Mot de passe : </label>\n" +
+        "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
+        "    <!-- Button d'envoie des données client -->\n" +
+        "<input id=\"boutonHisto\" class=\"buttonHistorique\" type=\"submit\" value=\"Voir mon panier\">\n" +
+        "    </fieldset>\n" +
+        "    </form>\n" +
+        "    </div>";
+
+}
+function connexionCommande(form){
+    let jsonClient={};
+    let clientId="";
+    /**
+     * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
+     * @type {XMLHttpRequest}
+     * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
+     */
+    let xhr =  new XMLHttpRequest();
+    xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
+    xhr.onload = function (){
+        jsonClient = JSON.parse(xhr.responseText);
+        if(Object.keys(jsonClient).length === 0){
+
+            document.getElementById("feedBackConnexion").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
+        }
+        else{
+            clientId = String(jsonClient[0].clientId);
+            panier(clientId);
+        }
+    };
+    xhr.send();
+
+}
+
+
 
