@@ -14,7 +14,7 @@ BEGIN
     call sa_set_http_header('Content-Type','application/json');
     select clientMail, clientPassword, clientId from tbClients
     where mail = clientMail AND motDePasse = clientPassword
-END
+END;
 
 /* Service pour la procedure getIdentifiant /getIdentifiant?mail=xxx@xxx.com&mdp?xxxx */
 
