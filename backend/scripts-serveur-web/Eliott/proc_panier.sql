@@ -22,4 +22,4 @@ END
 /* Creation du service : pour recevoirt le code JSON ( 'get' )*/
 
 CREATE SERVICE "panier" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS
-CALL dba.proc_panier();
+CALL dba.proc_panier(:cId);
