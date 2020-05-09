@@ -101,7 +101,7 @@ footer img{
     list-style-type: none;
 }
 
-#formBiere input, #formBiere select, #mail, #mdp{
+#formBiere input, #formBiere select{
     border-radius: 1px;
     width: 200px;
     text-align: center;
@@ -201,11 +201,6 @@ label{
     height: 36px;
 }
 
-#boutonHisto{
-    margin-left: 50%;
-    background-color: lightgray;
-}
-
 legend{
     text-align: center;
     border: gray 1px solid;
@@ -263,5 +258,58 @@ legend{
 
 #defaut {
     text-align : center;
+}
+
+table.tableHistorique {
+    border: 2px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+table.tableHistorique td, table.tableHistorique th {
+    border: 1px solid #FFFFFF;
+    padding: 3px 4px;
+}
+table.tableHistorique tbody td {
+    font-size: 13px;
+}
+table.tableHistorique td:nth-child(even) {
+    background: #EBEBEB;
+}
+table.tableHistorique thead {
+    background: #FFFFFF;
+    border-bottom: 4px solid #333333;
+}
+table.tableHistorique thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    border-left: 2px solid #333333;
+}
+table.tableHistorique thead th:first-child {
+    border-left: none;
+}
+
+table.tableHistorique details{
+    text-align: left;
+}
+
+#mail, #mdp{
+    margin-top: 10px;
+    border-radius: 1px;
+    width: 200px;
+    text-align: center;
+    float: right;
+    clear: right;
+    margin-right: 49%;
+    text-align: center;
+}
+
+#boutonHisto{
+    margin-top: 10px;
+    padding: 5px;
+    margin-left: 40%;
+    background-color: lightgray;
 }
 

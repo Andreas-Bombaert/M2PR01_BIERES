@@ -71,7 +71,7 @@ function connexionHistorique(form){
         return false;
     }
 
-    strRetour +="<table class='table table-striped'>"+"<thead><th>Liste</th><th>Reference</th><th>Prix Total</th><th>Quantité Totale</th><th>Date</th><th></th> </thead>";
+    strRetour +="<table class='tableHistorique'>"+"<thead><th>Liste</th><th>Reference</th><th>Prix Total</th><th>Quantité Totale</th><th>Date</th><th>Detail commande</th> </thead>";
     let count = 1;
     for(let i in jsonHistorique) {
         strRetour += "<tr id="+ jsonHistorique[i].commId +"><td>"+ count +"</td>"
