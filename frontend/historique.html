@@ -26,17 +26,17 @@
         <nav>
             <img id="mid" src="img/mib.png" alt="Made in Belgium">
             <ul>
+                <!-- Historique -->
+                <li>
+                    <a href="historique.html" title="Voir votre historique de commande.">Historique</a>
+                </li>
                 <!-- Panier -->
                 <li>
-                    <a href="commande.html" title="Commandez vos bières.">Commander</a>
+                    <a href="commande.html" title="Récapitulatif">Récapitulatif</a>
                 </li>
                 <!-- Catalogue -->
                 <li>
                     <a href="catalogue.html" title="Découvrez notre catalogue de bières.">Nos bières</a>
-                </li>
-                <!-- Historique -->
-                <li>
-                    <a href="historique.html" title="Voir votre historique de commande.">Historique</a>
                 </li>
                 <!-- Accueil -->
                 <li>
@@ -45,37 +45,37 @@
             </ul>
         </nav>
     </header>
-    </div>
-    <div id="historiqueCommande" class="contenuP">
-        <div class="row">
-            <div class="col-md-2"></div>
-                <div id="connexionHistorique" class="col-md-6">
-                    <form id="formulaire_connexion" class="form-group" action=# onsubmit="connexionHistorique(this); return false;">
-                        <fieldset>
-                             <legend>Formulaire de Connexion</legend>
+</div>
+<div id="historiqueCommande" class="contenuP">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="connexionHistorique" class="col-md-6">
+            <form id="formulaire_connexion" class="form-group" action=# onsubmit="connexionHistorique(this); return false;">
+                <fieldset>
+                    <legend>Formulaire de Connexion</legend><br>
 
-                                <!-- adresse mail du client -->
-                                <label for="mail" class="form-check-label text-left text-md-left">Adresse E-mail : </label>
-                                <input id="mail" name="mail" type="email" class="form-control" required placeholder="prénom.nom@gmail.com" value="AdrienneForest@rhyta.com"><br>
+                    <!-- adresse mail du client -->
+                    <label for="mail" class="form-check-label text-left text-md-left">Adresse E-mail : </label>
+                    <input id="mail" name="mail" type="email" class="form-control" required placeholder="prénom.nom@gmail.com" value="AdrienneForest@rhyta.com"><br>
 
-                                <!-- nom du client-->
-                                <label for="mdp" class="form-check-label text-left text-md-left">Mot de passe : </label>
-                                <input id="mdp" name="mdp" type="password" class="form-control" required placeholder="Mot de passe" value="cl011"><br><br>
+                    <!-- nom du client-->
+                    <label for="mdp" class="form-check-label text-left text-md-left">Mot de passe : </label>
+                    <input id="mdp" name="mdp" type="password" class="form-control" required placeholder="Mot de passe" value="cl011"><br><br>
 
-                                <!-- Button d'envoie des données client -->
-                                <input class="btn btn-primary" id="boutonHisto" type="submit" value="Voir mon historique">
-                         </fieldset>
-                    </form>
-                </div>
-        </div>
-        <div class="col-md-4"></div>
-        <div id="recuHistorique">
-
+                    <!-- Button d'envoie des données client -->
+                    <input class="btn btn-primary"id="boutonHisto" type="submit" value="Voir mon historique">
+                </fieldset>
+            </form>
         </div>
     </div>
-    <!-- Pied de page -->
-    <footer>
-        <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, <img src="img/ephec.jpg" alt="logo EPHEC"> - <a href="sitemap.html">SiteMap</a>.</small>
-    </footer>
+    <div class="col-md-4"></div>
+    <div id="recuHistorique">
+
+    </div>
+</div>
+<!-- Pied de page -->
+<footer>
+    <small>Projet de fin d'année 2020 technologie de l'informatique BAC 1, <img src="img/ephec.jpg" alt="logo EPHEC"> - <a href="sitemap.html">SiteMap</a>.</small>
+</footer>
 </body>
 </html>
