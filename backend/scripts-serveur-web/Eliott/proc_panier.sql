@@ -16,7 +16,7 @@ BEGIN
            ON biere.biereId = panier.biereId
     GROUP BY panier.biereId, biere.biereNom, biere.biereAlcool, biere.biereVolume, biere.bierePrix
     ORDER BY biere.biereNom;
-END
+END;
 
 
 /* Creation du service : pour recevoirt le code JSON ( 'get' )*/
