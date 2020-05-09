@@ -9,7 +9,7 @@
  * @type {XMLHttpRequest}
  * @result : Une table récapitulative des bières
  */
-
+"use strict";
 function panier () {
 
     var montantTotal = 0;  // montantTotal : calcule la somme des montants totaux de toute les bières commandées
