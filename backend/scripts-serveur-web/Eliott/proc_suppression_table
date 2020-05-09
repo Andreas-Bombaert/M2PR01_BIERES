@@ -1,3 +1,9 @@
+/*
+auth : Eliott
+
+Création de la procédure qui supprime une catégorie de bière, en fonction de son id
+*/
+
 CREATE PROCEDURE "DBA"."proc_suppression_table"(IN id CHAR(3))
 BEGIN 
     DELETE FROM tbPanier
