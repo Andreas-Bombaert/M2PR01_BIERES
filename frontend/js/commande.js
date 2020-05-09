@@ -24,8 +24,8 @@ function panier () {
         if (longueur === 0) {  // Test si l'objet parse contenant les bières du panier est vide, si oui il affiche un message disant que le panier est vide
                                //                                                                si non il affiche le tableau récapitulatif
             let phrase = "";
-            phrase += "<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, cliquez ici ! </strong>" +
-                "<a href='catalogue.html'>Catalogue</a>";
+            phrase += "<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, CLIQUEZ  </strong>" +
+                "<a href='catalogue.html'>ICI </a>" + "!";
             document.getElementById('defaut').innerHTML = phrase;       // place la réponse dans un élément de la page
 
         } else {
