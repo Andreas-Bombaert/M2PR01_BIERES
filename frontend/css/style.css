@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url("../img/fondBlanc.jpg");
 }
 
@@ -109,7 +109,6 @@ footer img{
     clear: right;
     margin-right: 44%;
     text-align: center;
-
 }
 
 div#catalogue {
@@ -123,7 +122,7 @@ div#catalogue {
 }
 .sectionUneBiere {
     border: solid 1px black;
-    margin: .25em;
+    margin: 0.25em;
     text-align: center;
     background-color: darkgrey;
     width: 15em;
@@ -140,7 +139,7 @@ label{
 
 #formBiere select{
     width: 375px;
-    margin-right: 44%; 
+    margin-right: 44%;
 }
 #formBiere input{
     margin-right: 44%;
@@ -212,21 +211,8 @@ legend{
     border: gray 1px solid;
 }
 
-#tableauPanier{
-    text-align: center;
-    empty-cells: hide;
-    border: black solid 1px;
-    border-collapse: collapse;
-    padding: 5em;
-    margin-left: 25em;
-}
-
-#laTable{
-    padding: 5em;
-}
-
-.vide{
-    display: none;
+.vide td {
+    border : none;
 }
 
 .TitreSomme {
@@ -264,5 +250,18 @@ legend{
         display:block;
         margin:0.2em auto;
          }
+}
+
+#tableauPanier{
+    text-align: center;
+    empty-cells: hide;
+    border: black solid 1px;
+    border-collapse: collapse;
+    padding: 5em;
+    margin : auto;
+}
+
+#defaut {
+    text-align : center;
 }
 
