@@ -8,7 +8,7 @@
  * @param form
  * @returns False (Afin de ne pas refresh la page)
  */
-
+"use strict";
 function connexionHistorique(form){
 
     /**<--- VARIABLES --->*/
