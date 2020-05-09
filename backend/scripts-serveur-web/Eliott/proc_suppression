@@ -6,7 +6,7 @@ Création de de la procédure qui supprime la totalité de la table tbPanier con
 CREATE PROCEDURE "DBA"."proc_suppression_all_table"()
 BEGIN 
     DELETE FROM tbPanier;
-END
+END;
 
 
 /* Création du webservice lié à la procédure */
