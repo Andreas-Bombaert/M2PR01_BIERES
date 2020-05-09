@@ -8,7 +8,7 @@ CREATE PROCEDURE "DBA"."proc_suppression_table"(IN id CHAR(3))
 BEGIN 
     DELETE FROM tbPanier
     WHERE biereId = id;
-END
+END;
 
 
 
