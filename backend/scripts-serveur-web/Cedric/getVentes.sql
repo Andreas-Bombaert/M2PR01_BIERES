@@ -11,7 +11,7 @@ BEGIN
     call sa_set_http_header('Content-Type','application/json');
     select commId, ligneNo, biereId, prodQuant from tbVentes
     where commId = code
-END
+END;
 
 /* Service pour la procedure "/getVentes?id=xxxx" */
 
