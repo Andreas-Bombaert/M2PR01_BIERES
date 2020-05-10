@@ -4,7 +4,7 @@ Création de de la procédure qui supprime la totalité de la table tbPanier con
 
 */
 
-ALTER PROCEDURE "dba"."proc_suppression_all_table"(in clId char(5))
+CREATE PROCEDURE "dba"."proc_suppression_all_table"(in clId char(5))
 BEGIN 
     delete from tbPanier
     where clientId=clId;
