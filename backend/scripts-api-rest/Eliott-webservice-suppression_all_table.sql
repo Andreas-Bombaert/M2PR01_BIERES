@@ -8,7 +8,7 @@ ALTER PROCEDURE "dba"."proc_suppression_all_table"(in clId char(5))
 BEGIN 
     delete from tbPanier
     where clientId=clId;
-END
+END;
 
 
 /* Création du webservice lié à la procédure */
