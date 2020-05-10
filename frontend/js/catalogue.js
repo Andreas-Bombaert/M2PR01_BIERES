@@ -1,3 +1,4 @@
+
 /**
  * Date: 25-04-2020
  * @author Mathis Dory
@@ -6,6 +7,8 @@
 
 let recapCommande={};
 let panier=0;
+let clId="";
+
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
@@ -173,7 +176,12 @@ function initBrasseurs(){
  * fonction qui ajoute la bière et la quantité demandée dans la table "panier" de la database
  */
 function addBr(biere,id,brasserie,volume,qtt,prix){
-    //-----partie inutile mais permet de garder une idée de la commande totale
+    if(clId===""){
+        alert("Veuillez vous connecter avant de commander");
+        return false;
+    }
+
+
     let found=false;
     for(let x of Object.keys(recapCommande)){
         if(id===x){
@@ -187,18 +195,63 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
         gid("panierActuel").innerText=panier;
         recapCommande[id]={biere:biere,brasserie:brasserie,volume:volume,quantite:parseInt(qtt),prix:prix,id:id};
     }
-    //-----
 
-    let url='insertPanier?bId='+id+'&qtt='+qtt+"&cId=cl001";
+
+    let url='insertPanier?bId='+id+'&qtt='+qtt+'&cId='+clId;
     let xhr = new XMLHttpRequest();
     xhr.open('get',url);
     xhr.onload=function(){
         console.log(url);
     };
-    xhr.onerror=function(){console.log("error");}
+    xhr.onerror=function(){console.log("xhr error");}
     xhr.send();
 
-    console.log(recapCommande);
+}
 
-    //return false;
+
+function connexionCommande(form){
+    let jsonClient={};
+    /**
+     * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
+     * @type {XMLHttpRequest}
+     * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
+     */
+    let xhr =  new XMLHttpRequest();
+    xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
+    xhr.onload = function (){
+        jsonClient = JSON.parse(xhr.responseText);
+        if(Object.keys(jsonClient).length === 0){
+
+            document.getElementById("feedBackConnexion").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
+        }
+        else{
+            clId = String(jsonClient[0].clientId);
+            alert("Connexion effectuée avec succès!");
+            document.getElementById("connexion").innerHTML="";
+            document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
+            document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
+            console.log(clId);
+        }
+    };
+    xhr.send();
+
+}
+
+function deconnecter(){
+    clId="";
+    document.getElementById("connectedClient").innerHTML="";
+    document.getElementById("connexion").innerHTML =
+        "    <form id=\"formulaire_connexion\" action=# onsubmit=\"connexionCommande(this); return false;\">\n" +
+        "    <fieldset>\n" +
+        "    <legend>Formulaire de Connexion</legend>\n" +
+        "<!-- adresse mail du client -->\n" +
+        "<label for=\"mail\">Adresse E-mail : </label>\n" +
+        "<input id=\"mail\" name=\"mail\" type=\"email\" required placeholder=\"prénom.nom@gmail.com\" value=\"AdrienneForest@rhyta.com\"><br>\n" +
+        "    <!-- nom du client-->\n" +
+        "<label for=\"mdp\">Mot de passe : </label>\n" +
+        "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
+        "    <!-- Button d'envoie des données client -->\n" +
+        "<input id=\"boutonForm\" type=\"submit\" value=\"Connexion\">\n" +
+        "    </fieldset>\n" +
+        "    </form>\n";
 }
