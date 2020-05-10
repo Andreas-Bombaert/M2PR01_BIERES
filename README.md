@@ -13,10 +13,10 @@ Nous allons creer une plateforme web afin de proposer des services de commandes 
 
 #### **FONCTIONNALITES PRINCIPALES :**
   * Un formulaire pour commander des bières,
-  * Faire une liste des bières disponible sur commande,
+  * Faire une liste des bières disponibles sur commande,
 
 #### **FONCTIONNALITES SUPPLEMENTAIRES :**
-  * Rajouter une description pour chaque bières, ainsi qu'un filtre pour les classer.
+  * Rajouter une description pour chaque bière, ainsi qu'un filtre pour les classer.
   * Faire un systeme de client (avec login) et ainsi avoir une fiche client.
   * Faire une récapitulation de la commande après envoi du formulaire, avec un bouton pour pouvoir imprimer.
   * Faire un historique des commandes
@@ -78,7 +78,7 @@ En tant qu'utilisateur je veux pouvoir:
    * *getHistory(:code)*  
       Donne l'historique client selon son ID
    * *connexion(:mail,:mdp)*  
-      Vérifie si le mail et le mot de passe sont correct et donne en retour l'ID du client et son prénom.
+      Vérifie si le mail et le mot de passe sont corrects et donne en retour l'ID du client et son prénom.
    * *getVentes(:id)*  
       Donne tout le contenu de la table Vente selon l'ID du client.
    * *insertHistorique(:coId,:cId,:prTot,:qttTot)*  
@@ -92,19 +92,19 @@ En tant qu'utilisateur je veux pouvoir:
    * *suppression(:id,:clId)*  
       Supprime une ligne dans la table Panier, en fonction de l'ID de la biere et de l'ID du client.
    * *allBr(:couleur,:pMin,:pMax,:dMin,:dMax)*  
-      Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les brasseries, 
+      Création de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les brasseries, 
 le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la couleur est également un critère de tri.
    * *allBrAllColors(:pMin,:pMax,:dMin,:dMax)*  
      Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs et toutes les brasseries, 
-le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum.
+le tri se fait avec le prix minimum, prix maximum, degré d'alcool minimum et maximum.
    * *allColors(:brasserie,:pMin,:pMax,:dMin,:dMax)*  
-     Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs, 
-le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la brasserie est également un critère de tri.
+     Création de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcool minimum et maximum la brasserie est également un critère de tri.
    * *initBieres()*  
-     Creation de la procédure qui récupère toutes les bières. Elle renvoit un id, le nom, la couleur, le degré d'alcoolémie, le volume, la brasserie et le prix.
+     Creation de la procédure qui récupère toutes les bières. Elle renvoie un id, le nom, la couleur, le degré d'alcoolémie, le volume, la brasserie et le prix.
    * *biereTrie(:couleur,:brasserie,:pMin,:pMax,:dMin,:dMax)*  
-    Creation de la procédure qui récupère toutes les bières avec des critères de tri, 
-le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la couleur et la brasserie sont également des critères de tri.
+    Création de la procédure qui récupère toutes les bières avec des critères de tri, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcool minimum et maximum la couleur et la brasserie sont également des critères de tri.
     
     
 ## Détails DB
