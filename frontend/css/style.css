@@ -374,3 +374,8 @@ table.tableHistorique details{
 .boutonCommander:hover {
     border-color: rgba(255, 255, 255, 1);
 }
+
+.errorID{
+    font-weight: bold;
+    color: red;
+}

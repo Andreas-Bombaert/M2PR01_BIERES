@@ -33,7 +33,7 @@ function connexionHistorique(form){
         jsonClient = JSON.parse(xhr.responseText);
         if(Object.keys(jsonClient).length === 0){
 
-            document.getElementById("connectedClient").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
+            document.getElementById("connectedClient").innerHTML="<p class='errorID'> Mauvais identifiant ou mauvais mot de passe</p>";
             mayStop = true;
         }
         else{
