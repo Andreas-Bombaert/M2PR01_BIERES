@@ -6,7 +6,7 @@ auth : Cédric
   output (JSON)   : Renvoi le contenu de la tbHistory selon le code en JSON.
 */
 
-CREATE PROCEDURE "DBA"."getHistory"(IN code CHAR(5))
+CREATE PROCEDURE "DBA"."proc_getHistory"(IN code CHAR(5))
 RESULT(commId CHAR(5),clientId char(5), prixTot decimal(6,2), quantTot integer, "date" datetime)
 BEGIN
     call sa_set_http_header('Access-Control-Allow-Origin','*');
@@ -18,4 +18,4 @@ END;
  ---
 /* Service pour recevoir le code JSON ( 'get'  '/history?id=co001' ).*/
 
-CREATE SERVICE "getHistory" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getHistory(:id);
+CREATE SERVICE "getHistory" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_getHistory(:id);
