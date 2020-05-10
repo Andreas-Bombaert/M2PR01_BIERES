@@ -9,7 +9,7 @@ CREATE PROCEDURE proc_insert_tbHistoriques(in coId CHAR(5), in cId CHAR(5), in q
 BEGIN
     INSERT INTO DBA.tbHistoriques(commId,clientId,prixTot,quantTot)
         VALUES
-    (coId,cId, calcPrixTot(coId), qttTot)
+    (coId,cId, calcPrixTot(coId), calcQuantTot(coId))
 END;
 
-CREATE SERVICE "insertHistorique" TYPE 'RAW' AUTHORIZATION OFF USER "dba" METHODS 'GET' AS call dba.proc_insert_tbHistoriques(:coId,:cId,:qttTot);
+CREATE SERVICE "insertHistorique" TYPE 'RAW' AUTHORIZATION OFF USER "dba" METHODS 'GET' AS call dba.proc_insert_tbHistoriques(:coId,:cId);
