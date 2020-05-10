@@ -8,7 +8,7 @@ BEGIN
     INSERT INTO dba.tbPanier (clientId,biereId,quantite)
     VALUES 
     (cId,bId,qtt);
-END
+END;
 
 
 CREATE SERVICE "insertPanier" TYPE 'RAW' AUTHORIZATION OFF USER "dba" METHODS 'GET' AS call dba.proc_insert_panier(:bId,:qtt,:cId);
