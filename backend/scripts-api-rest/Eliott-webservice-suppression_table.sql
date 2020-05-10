@@ -9,7 +9,7 @@ CREATE PROCEDURE "dba"."proc_suppression_table"(IN id CHAR(3), IN clId char(5))
 BEGIN 
     DELETE FROM tbPanier
     WHERE biereId = id and clientId=clId;
-END
+END;
 
 
 
