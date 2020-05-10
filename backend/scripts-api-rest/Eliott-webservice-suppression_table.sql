@@ -5,11 +5,11 @@ Création de la procédure qui supprime une catégorie de bière, en fonction de
 
 */
 
-CREATE PROCEDURE "DBA"."proc_suppression_table"(IN id CHAR(3))
+CREATE PROCEDURE "dba"."proc_suppression_table"(IN id CHAR(3), IN clId char(5))
 BEGIN 
     DELETE FROM tbPanier
-    WHERE biereId = id;
-END;
+    WHERE biereId = id and clientId=clId;
+END
 
 
 
