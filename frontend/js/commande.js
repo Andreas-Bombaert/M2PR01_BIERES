@@ -117,7 +117,9 @@ function toutSupprimer (clientId) {
 }
 
 
-
+/*
+fonction qui initialise le formulaire de connexion à différents moments
+*/
 function connexion() {
 
     document.getElementById("connexion").innerHTML = "<div id=\"connexionHistorique\">\n" +
@@ -137,14 +139,15 @@ function connexion() {
         "    </div>";
 }
 
+/**
+* Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
+* @type {XMLHttpRequest}
+* @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
+*/
 function connexionCommande(form){
     let jsonClient={};
 
-    /**
-     * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
-     * @type {XMLHttpRequest}
-     * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
-     */
+
     let xhr =  new XMLHttpRequest();
     xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
     xhr.onload = function (){
@@ -231,6 +234,7 @@ function commander(clientId) {
     document.getElementById("defaut").innerHTML="<strong id='phrase'>Votre commande est passée, si vous voulez commander de nouveau, cliquez </strong><a href='catalogue.html'>ICI </a>";
 
 }
+
 
 function deconnecter(){
     document.getElementById("connectedClient").innerHTML="";
