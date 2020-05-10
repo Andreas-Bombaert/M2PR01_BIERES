@@ -1,3 +1,5 @@
+"use strict";
+
 
 /**
  * @author Eliott LEPAGE
@@ -10,7 +12,6 @@
  * @type {XMLHttpRequest}
  * @result : Une table récapitulative des bières
  */
-"use strict";
 function panier(clientId) {
 
     var montantTotal = 0;  // montantTotal : calcule la somme des montants totaux de toute les bières commandées
@@ -23,7 +24,7 @@ function panier(clientId) {
         let longueur = parse.length;
 
         if (longueur === 0) {  // Test si l'objet parse contenant les bières du panier est vide, si oui il affiche un message disant que le panier est vide
-                               //                                                                si non il affiche le tableau récapitulatif
+            //                                                                si non il affiche le tableau récapitulatif
             let phrase = "";
             phrase += "<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, CLIQUEZ  </strong>" +
                 "<a href='catalogue.html'>ICI </a>" + "!";
@@ -40,7 +41,7 @@ function panier(clientId) {
                 str += "<tr class='row' id=" + identifiant + " ><td>" + x.nomBiere + "</td><td>" + x.alcoolBiere + "°" + "</td><td>" + x.volumeBiere + " cl" + "</td><td>" + (x.prixBiere).toFixed(2)
                     + " €" + "</td><td>" + x.quantitBiere + "</td><td>" + (x.prixTotal).toFixed(2) + " €" + "</td>";
 
-                str += "<td><input type='submit' id='imageSuppression' value='' onclick='supprimer(" + '"' + identifiant + '"' + ");'></td>"; // Création du bouton de suppression (juste une row)
+                str += "<td><input type='submit' id='imageSuppression' value='' onclick='supprimer(" + '"' + identifiant + '"' +','+'"' + clientId + '"'+ ");'></td>"; // Création du bouton de suppression (juste une row)
             }
 
             // Boucle qui calcule la somme totale à payer
@@ -49,7 +50,8 @@ function panier(clientId) {
             }
 
             str += "<tr class='vide'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer();'><input type='submit' id='commander' value='Commander' onclick='commander("+'"'+clientId+'"'+");'></td>";  // Création du bouton de suppression (toute la table)
+            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer(" + '"' + clientId + '"' + ");'></td>";  // Création du bouton de suppression (toute la table)
+
             str += "<td></td><td></td><td></td><td class='TitreSomme'>" + "Total :" + "</td><td id='somme'>" + montantTotal.toFixed(2) + " €" + "</td></tr>";
             str += "</tbody>";
             document.getElementById("tableauPanier").innerHTML = str;   // place la réponse dans un élément de la page
@@ -71,10 +73,10 @@ function panier(clientId) {
  * @result : Une table des bières (moins la row concernée)
  */
 
-function supprimer(id) {
+function supprimer(id,clientId) {
     /* **** appel AJAX **** */
     let xhr = new XMLHttpRequest();             // création d'un objet servant à effectuer la requête Ajax
-    xhr.open('get', 'http://localhost/suppression?id=' + id , false);               // type (GET), l'url et l'asynchrone de la requête (false)
+    xhr.open('get', 'http://localhost/suppression?id=' + id +"&clId="+clientId, false);               // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function() {
         console.log("");
     };
@@ -83,7 +85,7 @@ function supprimer(id) {
 
     /* Suppression d'une row en fonction de son id (exple : 'b01') */
     document.getElementById(id).remove();
-    panier();       // refresh de la page
+    panier(clientId);
 }
 
 /**
@@ -98,11 +100,10 @@ function supprimer(id) {
  *
  * @result : Une table vide
  */
-
-function toutSupprimer () {
+function toutSupprimer (clientId) {
     /* **** appel AJAX **** */
     let xhr = new XMLHttpRequest();               // création d'un objet servant à effectuer la requête Ajax
-    xhr.open('get', 'suppression_all?clId='+clId, false);                 // type (GET), l'url et l'asynchrone de la requête (false)
+    xhr.open('get', 'suppression_all?clId='+clientId, false);                 // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function () {
         console.log("");
     };
@@ -116,7 +117,6 @@ function toutSupprimer () {
 
 
 function connexion() {
-
 
     document.getElementById("connexion").innerHTML = "<div id=\"connexionHistorique\">\n" +
         "    <form id=\"formulaire_connexion\" action=# onsubmit=\"connexionCommande(this); return false;\">\n" +
@@ -133,11 +133,11 @@ function connexion() {
         "    </fieldset>\n" +
         "    </form>\n" +
         "    </div>";
-
 }
+
 function connexionCommande(form){
     let jsonClient={};
-    let clientId="";
+
     /**
      * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
      * @type {XMLHttpRequest}
@@ -152,7 +152,7 @@ function connexionCommande(form){
             document.getElementById("feedBackConnexion").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
         }
         else{
-            clientId = String(jsonClient[0].clientId);
+            let clientId = String(jsonClient[0].clientId);
             panier(clientId);
         }
     };
@@ -222,7 +222,3 @@ function commander(clientId) {
         count++;
     }
 }
-
-
-
-
