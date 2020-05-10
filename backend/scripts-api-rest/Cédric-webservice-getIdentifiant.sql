@@ -6,7 +6,7 @@ Retourne le clientId
 */
 
 
-CREATE PROCEDURE "DBA"."getIdentifiant" (IN mail VARCHAR(50),IN motDePasse VARCHAR(20))
+CREATE PROCEDURE "DBA"."proc_getIdentifiant" (IN mail VARCHAR(50),IN motDePasse VARCHAR(20))
 RESULT(identifiant VARCHAR(20), mdp VARCHAR(20), clientId CHAR(5))
 BEGIN
     call sa_set_http_header('Access-Control-Allow-Origin','*');
@@ -17,4 +17,4 @@ END;
 
 /* Service pour la procedure getIdentifiant /getIdentifiant?mail=xxx@xxx.com&mdp?xxxx */
 
-CREATE SERVICE "connexion" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.getIdentifiant(:mail,:mdp);
+CREATE SERVICE "connexion" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_getIdentifiant(:mail,:mdp);
