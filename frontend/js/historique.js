@@ -41,7 +41,7 @@ function connexionHistorique(form){
             alert("Connexion effectuée avec succès!");
             document.getElementById("connexion").innerHTML="";
             document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
-            document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
+            document.getElementById("connectedClient").innerHTML+="<br><button id='boutonDeconnexion' class='boutonDeconnexion' onclick='deconnecter();'>Se Déconnecter</button>";
         }
     };
     xhr.send();
@@ -147,7 +147,7 @@ function deconnecter(){
         "<label for=\"mdp\">Mot de passe : </label>\n" +
         "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
         "    <!-- Button d'envoie des données client -->\n" +
-        "<input id=\"boutonHisto\" class=\"buttonHistorique\" type=\"submit\" value=\"Voir mon historique\">\n" +
+        "<input id=\"boutonConnexion\"class=\"boutonConnexion\" type=\"submit\" value=\"Voir mon historique\">\n" +
         "    </fieldset>\n" +
         "    </form>\n";
 }

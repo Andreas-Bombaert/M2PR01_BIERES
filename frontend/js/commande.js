@@ -50,7 +50,7 @@ function panier(clientId) {
             }
 
             str += "<tr class='vide'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer(" + '"' + clientId + '"' + ");'></td><input type='submit' id='commander' value='Commander' onclick='commander("+'"'+clientId+'"'+");'></td>";  // Création du bouton de suppression (toute la table)
+            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer(" + '"' + clientId + '"' + ");'></td><input type='submit' id='commander' class='boutonCommander' value='Commander' onclick='commander("+'"'+clientId+'"'+");'></td>";  // Création du bouton de suppression (toute la table)
 
             str += "<td></td><td></td><td></td><td class='TitreSomme'>" + "Total :" + "</td><td id='somme'>" + montantTotal.toFixed(2) + " €" + "</td></tr>";
             str += "</tbody>";
@@ -131,7 +131,7 @@ function connexion() {
         "<label for=\"mdp\">Mot de passe : </label>\n" +
         "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
         "    <!-- Button d'envoie des données client -->\n" +
-        "<input id=\"boutonHisto\" class=\"buttonHistorique\" type=\"submit\" value=\"Voir mon panier\">\n" +
+        "<input id=\"boutonConnexion\" class=\"boutonConnexion\" type=\"submit\" value=\"Voir mon panier\">\n" +
         "    </fieldset>\n" +
         "    </form>\n" +
         "    </div>";
@@ -160,7 +160,7 @@ function connexionCommande(form){
             document.getElementById("connexion").innerHTML="";
             document.getElementById("connectedClient").innerHTML="";
             document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
-            document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
+            document.getElementById("connectedClient").innerHTML+="<br><button id='boutonDeconnexion' class='boutonDeconnexion' onclick='deconnecter();'>Se Déconnecter</button>";
         }
     };
     xhr.send();
@@ -248,7 +248,7 @@ function deconnecter(){
         "<label for=\"mdp\">Mot de passe : </label>\n" +
         "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
         "    <!-- Button d'envoie des données client -->\n" +
-        "<input id=\"boutonHisto\" class=\"buttonHistorique\" type=\"submit\" value=\"Voir mon panier\">\n" +
+        "<input id=\"boutonConnexion\" class=\"boutonConnexion\" type=\"submit\" value=\"Voir mon panier\">\n" +
         "    </fieldset>\n" +
         "    </form>\n";
 }

@@ -213,7 +213,7 @@ function connexionCommande(form){
             document.getElementById("connexion").innerHTML="";
             document.getElementById("connectedClient").innerHTML="";
             document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
-            document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
+            document.getElementById("connectedClient").innerHTML+="<br><button id='boutonDeconnexion' class='boutonDeconnexion' onclick='deconnecter();'>Se Déconnecter</button>";
             console.log(clId);
         }
     };
@@ -235,7 +235,7 @@ function deconnecter(){
         "<label for=\"mdp\">Mot de passe : </label>\n" +
         "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
         "    <!-- Button d'envoie des données client -->\n" +
-        "<input id=\"boutonForm\" type=\"submit\" value=\"Connexion\">\n" +
+        "<input id=\"boutonConnexion\" class=\"boutonConnexion\" type=\"submit\" value=\"Connexion\">\n" +
         "    </fieldset>\n" +
         "    </form>\n";
 }
