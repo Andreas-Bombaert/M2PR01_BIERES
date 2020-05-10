@@ -63,3 +63,41 @@ En tant qu'utilisateur je veux pouvoir:
    * Passer une commande avec un ou plusieurs articles dans différentes quantités
    * Annuler une commande
    * Visualiser mon historique
+   
+   
+ ## API REST:
+ Voici les différentes fonctionnalitées de notre API :
+   * *initBrasseurs()*:
+      Initialise la liste des brasseurs dans l'ordre alphabétique
+   * *insertPanier(:bId,:qtt,:cId)*:
+      Insère les bieres avec son Id,sa quantité et l'ID du client dans la table tbPanier.
+   * *getBieres()*
+      Donne la liste des bieres avec son ID
+   * *getCommId() * 
+      Donne la liste des commandes ( seulement l'ID )
+   * *getHistory(:id)*
+      Donne l'historique client selon son ID
+   * *connexion(:mail,:mdp)* (getIdentifiants) (:mail,:mdp)
+      Vérifie si le mail et le mot de passe sont correct et donne en retour l'ID du client et son prénom.
+   * *getVentes(:id)*
+      Donne tout le contenu de la table Vente selon l'ID du client.
+   * *insertHistorique(:coId,:cId,:prTot,:qttTot)*
+      Insère dans la table historique l'ID de la commande, le client ID, le prix total et la quantité totale de la commande qui vient d'etre passée
+   * *insertVente(:coId,:bId,:numL,:qtt)*
+      Insère dans la table vente, l'ID de la commande, l'ID de la biere, le numero de ligne en fct de la commande, et la quantité de bière commandée
+   * *panier(:cId)*
+      Donne tout le contenu de la table Panier en fonction de l'ID du client
+   * *suppression_all(:clId)*
+      Supprime dans la table Panier tout ce qui correspond au client ID
+   * *suppression(:id,:clId)*
+      Supprime une ligne dans la table Panier, en fonction de l'ID de la biere et de l'ID du client.
+   * *allBr(:couleur,:pMin,:pMax,:dMin,:dMax)*
+      //
+   * *allBrAllColors(:pMin,:pMax,:dMin,:dMax)*
+     // 
+   * *allColors(:brasserie,:pMin,:pMax,:dMin,:dMax)*
+     //
+   * *initBieres()*
+     //
+   * *biereTrie(:couleur,:brasserie,:pMin,:pMax,:dMin,:dMax)*
+    //
