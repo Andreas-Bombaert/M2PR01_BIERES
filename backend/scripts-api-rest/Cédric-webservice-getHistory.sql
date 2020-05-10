@@ -12,10 +12,11 @@ BEGIN
     call sa_set_http_header('Access-Control-Allow-Origin','*');
     call sa_set_http_header('Content-Type','application/json');
     Select commId, clientId, prixTot, quantTot, "date" from tbHistoriques
-    where commId = code
+    where clientId = code
 END;
+
 
  ---
 /* Service pour recevoir le code JSON ( 'get'  '/history?id=co001' ).*/
 
-CREATE SERVICE "getHistory" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_getHistory(:id);
+CREATE SERVICE "getHistory" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_getHistory(:code);
