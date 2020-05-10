@@ -133,6 +133,10 @@ function connexionHistorique(form){
     return false;
 }
 
+/**
+ * fonction qui déconnecte l'utilisateur actuel et réinitalise le formulaire de connexion pour permettre 
+ * a un autre utilisateur de se connecter
+ */
 function deconnecter(){
     document.getElementById("connectedClient").innerHTML="";
     document.getElementById("recuHistorique").innerHTML="";
