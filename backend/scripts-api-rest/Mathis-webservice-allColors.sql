@@ -7,4 +7,6 @@ BEGIN
     join dba.tbBrasseurs as brasseur on biere.brasseurId = brasseur.brasseurId 
     where biere.brasseurId = brasserie AND (bierePrix BETWEEN pMin AND pMax) AND (biereAlcool BETWEEN dMin AND dMax)
     order by biere.biereNom ASC;
-END
+END;
+
+CREATE SERVICE allColors TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_catalogueAllColors(:brasserie,:pMin,:pMax,:dMin,:dMax);
