@@ -50,7 +50,7 @@ function panier(clientId) {
             }
 
             str += "<tr class='vide'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer(" + '"' + clientId + '"' + ");'></td>";  // Création du bouton de suppression (toute la table)
+            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer(" + '"' + clientId + '"' + ");'></td><input type='submit' id='commander' value='Commander' onclick='commander("+'"'+clientId+'"'+");'></td>";  // Création du bouton de suppression (toute la table)
 
             str += "<td></td><td></td><td></td><td class='TitreSomme'>" + "Total :" + "</td><td id='somme'>" + montantTotal.toFixed(2) + " €" + "</td></tr>";
             str += "</tbody>";
