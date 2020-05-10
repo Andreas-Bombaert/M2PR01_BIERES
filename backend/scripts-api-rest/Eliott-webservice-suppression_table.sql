@@ -15,4 +15,4 @@ END
 
 /* Création du webservice lié à la procédure */
 
-CREATE SERVICE "suppression" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call dba.proc_suppression_table(:id);
+CREATE SERVICE "suppression" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_suppression_table(:id,:clId);
