@@ -205,12 +205,13 @@ function connexionCommande(form){
         jsonClient = JSON.parse(xhr.responseText);
         if(Object.keys(jsonClient).length === 0){
 
-            document.getElementById("feedBackConnexion").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
+            document.getElementById("connectedClient").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
         }
         else{
             clId = String(jsonClient[0].clientId);
             alert("Connexion effectuée avec succès!");
             document.getElementById("connexion").innerHTML="";
+            document.getElementById("connectedClient").innerHTML="";
             document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
             document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
             console.log(clId);

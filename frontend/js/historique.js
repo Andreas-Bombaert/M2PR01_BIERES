@@ -33,11 +33,15 @@ function connexionHistorique(form){
         jsonClient = JSON.parse(xhr.responseText);
         if(Object.keys(jsonClient).length === 0){
 
-            document.querySelector('#recuHistorique').innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
+            document.getElementById("connectedClient").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
             mayStop = true;
         }
         else{
-            clientId = String(jsonClient[0].clientId);
+            clientId= String(jsonClient[0].clientId);
+            alert("Connexion effectuée avec succès!");
+            document.getElementById("connexion").innerHTML="";
+            document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
+            document.getElementById("connectedClient").innerHTML+="<br><button onclick='deconnecter();'>Se Déconnecter</button>";
         }
     };
     xhr.send();
@@ -125,3 +129,23 @@ function connexionHistorique(form){
 
     return false;
 }
+
+function deconnecter(){
+    document.getElementById("connectedClient").innerHTML="";
+    document.getElementById("recuHistorique").innerHTML="";
+    document.getElementById("connexion").innerHTML =
+        "    <form id=\"formulaire_connexion\" action=# onsubmit=\"connexionHistorique(this); return false;\">\n" +
+        "    <fieldset>\n" +
+        "    <legend>Formulaire de Connexion</legend>\n" +
+        "<!-- adresse mail du client -->\n" +
+        "<label for=\"mail\">Adresse E-mail : </label>\n" +
+        "<input id=\"mail\" name=\"mail\" type=\"email\" required placeholder=\"prénom.nom@gmail.com\" value=\"AdrienneForest@rhyta.com\"><br>\n" +
+        "    <!-- nom du client-->\n" +
+        "<label for=\"mdp\">Mot de passe : </label>\n" +
+        "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
+        "    <!-- Button d'envoie des données client -->\n" +
+        "<input id=\"boutonHisto\" class=\"buttonHistorique\" type=\"submit\" value=\"Voir mon historique\">\n" +
+        "    </fieldset>\n" +
+        "    </form>\n";
+}
+
