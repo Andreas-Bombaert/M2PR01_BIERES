@@ -6,7 +6,6 @@
 "use strict";
 
 let recapCommande={};
-let panier=0;
 let clId="";
 
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
@@ -38,7 +37,6 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
             gid("catalogue").innerHTML = uneBiere;              // ici, place simplement la réponse dans un élément de la page
         };
     xhr.send();
-    gid("panierActuel").innerText=panier;
 }
 
 function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string, string, number, number, number, number} sont les données se trouvant dans le formulaire de recherche.
@@ -179,21 +177,6 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
     if(clId===""){
         alert("Veuillez vous connecter avant de commander");
         return false;
-    }
-
-
-    let found=false;
-    for(let x of Object.keys(recapCommande)){
-        if(id===x){
-            found=true;
-            recapCommande[id].quantite+=parseInt(qtt);
-
-        }
-    }
-    if(found===false){
-        panier++;
-        gid("panierActuel").innerText=panier;
-        recapCommande[id]={biere:biere,brasserie:brasserie,volume:volume,quantite:parseInt(qtt),prix:prix,id:id};
     }
 
 
