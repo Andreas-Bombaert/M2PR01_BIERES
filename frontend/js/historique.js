@@ -111,6 +111,7 @@ function connexionHistorique(form){
      * @result : un strDetail qui s'affichera dans une partie du tableau td id=detail_coXXX avec les produit et leur quantité respective commandé).
      */
     for(let i in jsonHistorique){
+        jsonVentes = {};
         strDetail = "";
         xhr = new XMLHttpRequest();
         xhr.open('get','getVentes?id='+jsonHistorique[i].commId,false);
@@ -119,8 +120,10 @@ function connexionHistorique(form){
         };
         xhr.send();
 
+        console.log(jsonVentes);
         strDetail +="<details><summary>Details produit</summary>";
         for(let j in jsonVentes){
+
             strDetail+= "Produit = "+jsonBiereNom[jsonVentes[j].biereId]+" ,Quantité = "+jsonVentes[j].prodQuant+ " ,<br>";
         }
         strDetail+="</details>";

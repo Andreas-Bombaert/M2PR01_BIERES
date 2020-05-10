@@ -228,6 +228,10 @@ function commander(clientId) {
         xhr.send();
         count++;
     }
+
+    toutSupprimer(clientId);
+    document.getElementById("defaut").innerHTML="<strong id='phrase'>Votre commande est passée, si vous voulez commander de nouveau, cliquez </strong><a href='catalogue.html'>ICI </a>";
+
 }
 
 function deconnecter(){
