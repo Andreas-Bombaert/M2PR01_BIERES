@@ -8,6 +8,12 @@
 let recapCommande={};
 let clId="";
 
+/**
+ * Envoit une requete HTTP XML afin d'aller chercher la liste de toutes les bières pour permettre l'initialisation du catalogue
+ * @type {XMLHttpRequest}
+ * @result : la variable uneBiere recoit les données coresspondant à l'id d'une bière.
+ */
+
 function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     let xhr = new XMLHttpRequest();
     xhr.open('get', "http://localhost/initBieres", true);
@@ -39,7 +45,15 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
     xhr.send();
 }
 
-function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string, string, number, number, number, number} sont les données se trouvant dans le formulaire de recherche.
+/**
+ * Envoit une requete HTTP XML afin d'aller chercher la liste des bières en fonction des critères de tri sélectionnés
+ * @type {XMLHttpRequest}
+ * @result : la variable uneBiere recoit les données coresspondant à un type de tri. Si un input est laissé vide, on lui donne une valeur par défaut
+ * @param{string, string, number, number, number, number} sont les données se trouvant dans le formulaire de recherche.
+*  @return false pour bloquer l'envoit du formulaire.
+ */
+
+function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { 
     let xhr = new XMLHttpRequest();
     if (couleur == "allColors" && brasserie != "allBr"){
         if (pMin == "") {
@@ -129,7 +143,7 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) { // @param{string
             gid("catalogue").innerHTML = uneBiere;
         };
     xhr.send();
-    return false; // @return false pour bloquer l'envoit du formulaire.
+    return false;
 
 }
 
