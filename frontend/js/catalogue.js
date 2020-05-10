@@ -198,11 +198,6 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
  */
 function connexionCommande(form){
     let jsonClient={};
-    /**
-     * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
-     * @type {XMLHttpRequest}
-     * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
-     */
     let xhr =  new XMLHttpRequest();
     xhr.open('get','connexion?mail='+form.mail.value+'&mdp='+form.mdp.value,false);
     xhr.onload = function (){
