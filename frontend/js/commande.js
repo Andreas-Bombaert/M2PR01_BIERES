@@ -152,6 +152,7 @@ function connexionCommande(form){
             document.getElementById("feedBackConnexion").innerHTML="<p> Mauvais identifiant ou mauvais mot de passe</p>";
         }
         else{
+            document.getElementById("feedBackConnexion").innerHTML="";
             let clientId = String(jsonClient[0].clientId);
             panier(clientId);
         }
