@@ -75,7 +75,7 @@ En tant qu'utilisateur je veux pouvoir:
    Donne la liste des bieres avec son ID
    * *getCommId() *   
       Donne la liste des commandes ( seulement l'ID )
-   * *getHistory(:id)*  
+   * *getHistory(:code)*  
       Donne l'historique client selon son ID
    * *connexion(:mail,:mdp)*  
       Vérifie si le mail et le mot de passe sont correct et donne en retour l'ID du client et son prénom.
