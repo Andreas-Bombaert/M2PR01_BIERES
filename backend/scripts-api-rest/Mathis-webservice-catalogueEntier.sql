@@ -6,4 +6,6 @@ BEGIN
     select biereId, biereNom, biereCouleur, biereAlcool, biereVolume, brasseurNom, bierePrix from dba.tbBieres as biere
     join dba.tbBrasseurs as brasseur on biere.brasseurId = brasseur.brasseurId 
     order by biere.biereNom ASC;
-END
+END;
+
+CREATE SERVICE "initBieres" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_catalogueEntier();
