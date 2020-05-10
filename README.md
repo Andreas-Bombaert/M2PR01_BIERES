@@ -101,3 +101,7 @@ En tant qu'utilisateur je veux pouvoir:
      //
    * *biereTrie(:couleur,:brasserie,:pMin,:pMax,:dMin,:dMax)*  
     //
+    
+    
+## DETAIL DB
+![Diagramme de la database](https://i.imgur.com/m8k606a.png)
