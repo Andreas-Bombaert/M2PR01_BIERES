@@ -117,8 +117,9 @@ function toutSupprimer (clientId) {
 }
 
 
-/*
-fonction qui initialise le formulaire de connexion à différents moments
+/**
+ * Auth: Cédric
+ * fonction qui initialise le formulaire de connexion à différents moments
 */
 function connexion() {
 
@@ -140,9 +141,10 @@ function connexion() {
 }
 
 /**
-* Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
-* @type {XMLHttpRequest}
-* @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
+ * Auth: Cédric De Dryver
+ * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
+ * @type {XMLHttpRequest}
+ * @result : la var clientId recoit l'id du client necessaire a l'obtention de son historique.
 */
 function connexionCommande(form){
     let jsonClient={};
@@ -169,6 +171,14 @@ function connexionCommande(form){
     xhr.send();
 
 }
+
+/**
+ * Auth: Cédric.
+ *
+ * Fonction qui va envoyer grace a des requetes AJAX, les valeurs a mettre dans la table Ventes et la table Historique.
+ *
+ * @param clientId Permet d'envoyer avec le bon client ID
+ */
 
 function commander(clientId) {
     let jsonCommander ={}, jsonCommId = {};
