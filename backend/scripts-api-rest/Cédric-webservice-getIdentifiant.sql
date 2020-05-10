@@ -5,7 +5,7 @@ Procedure et service pour avoir les identifiants (et verifier qu'ils sont bon).
 Retourne le clientId
 */
 
-CREATE PROCEDURE "DBA"."getIdentifiant" (IN mail VARCHAR(50),IN motDePasse VARCHAR(20))
+CREATE PROCEDURE "DBA"."proc_getIdentifiant" (IN mail VARCHAR(50),IN motDePasse VARCHAR(20))
 RESULT(identifiant VARCHAR(20), mdp VARCHAR(20), clientId CHAR(5), clientPrenom VARCHAR(20))
 BEGIN
     call sa_set_http_header('Access-Control-Allow-Origin','*');
