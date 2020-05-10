@@ -65,7 +65,7 @@ En tant qu'utilisateur je veux pouvoir:
    * Visualiser mon historique
    
    
- ## API REST:
+ ## Détails API REST:
  Voici les différentes fonctionnalitées de notre API :
    * *initBrasseurs()*:  
    Initialise la liste des brasseurs dans l'ordre alphabétique
@@ -107,7 +107,7 @@ le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum 
 le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la couleur et la brasserie sont également des critères de tri.
     
     
-## DETAIL DB
+## Détails DB
 Description des tables de notre database:
 * *tbPanier*:  
 Elle sert a stocker les informations du panier de chaques clients
@@ -117,7 +117,7 @@ Elle sert a stocker les informations des commandes passées ( les bieres command
 Elle sert a stocker les informations globales des commandes passées ( les client, prix total, quantité totale et date.)
 * *tbClients*:  
 Elle sert a stocker les informations des clients.
-* *tbBieres*
+* *tbBieres*:  
 Elle sert a stocker les informations des bieres misent a la vente.
 * *tbBrasseurs*:  
 Elle sert a stocker les informations des brasseurs
