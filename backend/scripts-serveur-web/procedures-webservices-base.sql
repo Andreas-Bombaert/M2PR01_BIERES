@@ -51,7 +51,7 @@ begin
  call sa_set_http_header('Content-Type','image/' || extension);
  select xp_read_file(dba.getPath() || 'img\\' || url) 
 --
-end;
+END;
 
 ---
 
@@ -64,9 +64,7 @@ BEGIN
     call sa_set_http_header('Content-Type', 'video/' || extension);
     select xp_read_file("DBA"."getPath"() || 'video\' || url);
 END;
-
 --------------------------------------------------------------------------------------------------------------------------------------
-
 CREATE SERVICE "root" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getPage(:url);
 CREATE SERVICE "css" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getCSS(:url);
 CREATE SERVICE "js" TYPE 'RAW' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.http_getJS(:url);
