@@ -209,7 +209,6 @@ function commander(clientId) {
     xhr = new XMLHttpRequest();
     xhr.open('get',url, false);
     xhr.onload = function(){
-        console.log(url)
     }
     ;
     xhr.onerror=function(){console.log("error");}
@@ -222,7 +221,6 @@ function commander(clientId) {
         xhr = new XMLHttpRequest();
         xhr.open('get',url,false);
         xhr.onload = function(){
-            console.log(url);
         };
         xhr.onerror=function(){console.log("error");}
         xhr.send();
@@ -236,20 +234,19 @@ function commander(clientId) {
 
 function deconnecter(){
     document.getElementById("connectedClient").innerHTML="";
-    document.getElementById("tableauPanier").innerHTML="";
-    document.getElementById("connexion").innerHTML =
-        "    <form id=\"formulaire_connexion\" action=# onsubmit=\"connexionCommande(this); return false;\">\n" +
-        "    <fieldset>\n" +
-        "    <legend>Formulaire de Connexion</legend>\n" +
-        "<!-- adresse mail du client -->\n" +
-        "<label for=\"mail\">Adresse E-mail : </label>\n" +
-        "<input id=\"mail\" name=\"mail\" type=\"email\" required placeholder=\"prénom.nom@gmail.com\" value=\"AdrienneForest@rhyta.com\"><br>\n" +
-        "    <!-- nom du client-->\n" +
-        "<label for=\"mdp\">Mot de passe : </label>\n" +
-        "<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n" +
-        "    <!-- Button d'envoie des données client -->\n" +
-        "<input id=\"boutonConnexion\" class=\"boutonConnexion\" type=\"submit\" value=\"Voir mon panier\">\n" +
-        "    </fieldset>\n" +
-        "    </form>\n";
+    document.getElementById("defaut").innerHTML="<table border=\"1\" cellpadding=\"10\" cellspacing=\"1\" id=\"tableauPanier\"> </table>";
+    document.getElementById("connexion").innerHTML = "<form id=\"formulaire_connexion\" action=# onsubmit=\"connexionCommande(this); return false;\">\n"
+        +"<fieldset>\n"
+        +"<legend>Formulaire de Connexion</legend>\n"
+        +"<!-- adresse mail du client -->\n"
+        +"<label for=\"mail\">Adresse E-mail : </label>\n"
+        +"<input id=\"mail\" name=\"mail\" type=\"email\" required placeholder=\"prénom.nom@gmail.com\" value=\"AdrienneForest@rhyta.com\"><br>\n"
+        +"<!-- nom du client-->\n"
+        +"<label for=\"mdp\">Mot de passe : </label>\n"
+        +"<input id=\"mdp\" name=\"mdp\" type=\"password\" required placeholder=\"Mot de passe\" value=\"cl011\"><br><br><br>\n"
+        +"<!-- Button d'envoie des données client -->\n"
+        +"<input id=\"boutonConnexion\" class=\"boutonConnexion\" type=\"submit\" value=\"Voir mon panier\">\n"
+        +"</fieldset>\n"
+        +"</form>\n";
 }
 
