@@ -13,3 +13,6 @@ END;
 /* Création du webservice lié à la procédure */
 
 CREATE SERVICE "suppression_all" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call DBA.proc_suppression_all_table();
+
+
+
