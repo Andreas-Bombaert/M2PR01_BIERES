@@ -11,5 +11,5 @@ BEGIN
     (coId,bId,numL,quant);
 END;
 
-CREATE SERVICE "insertVente" TYPE 'RAW' AUTHORIZATION OFF USER "dba" METHODS 'GET' AS call dba.proc_insert_tbVentes(:coId,:bId,:numL,;qtt);
+CREATE SERVICE "insertVente" TYPE 'RAW' AUTHORIZATION OFF USER "dba" METHODS 'GET' AS call dba.proc_insert_tbVentes(:coId,:bId,:numL,:qtt);
 
