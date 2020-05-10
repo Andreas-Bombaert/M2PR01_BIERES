@@ -92,15 +92,19 @@ En tant qu'utilisateur je veux pouvoir:
    * *suppression(:id,:clId)*  
       Supprime une ligne dans la table Panier, en fonction de l'ID de la biere et de l'ID du client.
    * *allBr(:couleur,:pMin,:pMax,:dMin,:dMax)*  
-      //
+      Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les brasseries, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la couleur est également un critère de tri.
    * *allBrAllColors(:pMin,:pMax,:dMin,:dMax)*  
-     // 
+     Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs et toutes les brasseries, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum.
    * *allColors(:brasserie,:pMin,:pMax,:dMin,:dMax)*  
-     //
+     Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la brasserie est également un critère de tri.
    * *initBieres()*  
-     //
+     Creation de la procédure qui récupère toutes les bières. Elle renvoit un id, le nom, la couleur, le degré d'alcoolémie, le volume, la brasserie et le prix.
    * *biereTrie(:couleur,:brasserie,:pMin,:pMax,:dMin,:dMax)*  
-    //
+    Creation de la procédure qui récupère toutes les bières avec des critères de tri, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum la couleur et la brasserie sont également des critères de tri.
     
     
 ## DETAIL DB
