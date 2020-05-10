@@ -49,8 +49,7 @@ function panier(clientId) {
             }
 
             str += "<tr class='vide'><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer();'></td>";  // Création du bouton de suppression (toute la table)
-
+            str += "<tr class='vide'><td><input type='submit' id='toutSupprimer' value='Tout supprimer' onclick='toutSupprimer();'><input type='submit' id='commander' value='Commander' onclick='commander("+'"'+clientId+'"'+");'></td>";  // Création du bouton de suppression (toute la table)
             str += "<td></td><td></td><td></td><td class='TitreSomme'>" + "Total :" + "</td><td id='somme'>" + montantTotal.toFixed(2) + " €" + "</td></tr>";
             str += "</tbody>";
             document.getElementById("tableauPanier").innerHTML = str;   // place la réponse dans un élément de la page
@@ -103,7 +102,7 @@ function supprimer(id) {
 function toutSupprimer () {
     /* **** appel AJAX **** */
     let xhr = new XMLHttpRequest();               // création d'un objet servant à effectuer la requête Ajax
-    xhr.open('get', 'http://localhost/suppression_all', false);                 // type (GET), l'url et l'asynchrone de la requête (false)
+    xhr.open('get', 'suppression_all?clId='+clId, false);                 // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function () {
         console.log("");
     };
@@ -111,8 +110,7 @@ function toutSupprimer () {
 
 
     /* suppression de toutes les row de la table */
-    document.querySelector(".row").remove();
-    panier();       // refresh de la page
+    document.getElementById("defaut").innerHTML="<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, CLIQUEZ  </strong>";
 }
 
 
@@ -161,6 +159,70 @@ function connexionCommande(form){
     xhr.send();
 
 }
+
+function commander(clientId) {
+    let jsonCommander ={}, jsonCommId = {};
+    let lastCommId="", url ="";
+    let prixTot=0, quantTot=0;
+    let count = 1;
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','panier?cId='+clientId,false);
+    xhr.onload = function() {
+        jsonCommander = Object.assign(jsonCommander,JSON.parse(xhr.responseText));
+    };
+    xhr.send();
+
+    console.log(jsonCommander);
+    xhr = new XMLHttpRequest();
+    xhr.open('get','getCommId', false);
+    xhr.onload = function(){
+        jsonCommId = Object.assign(jsonCommId,JSON.parse(xhr.responseText));
+    };
+    xhr.send();
+
+    lastCommId = jsonCommId[Object.keys(jsonCommId).length-1].commId;
+    console.log(lastCommId[2]);
+    if(lastCommId[2]=='0') {
+        lastCommId = lastCommId.slice(-3);
+        lastCommId = parseInt(lastCommId)+1;
+        lastCommId = "co0"+lastCommId;
+        console.log("???")
+    } else {
+        lastCommId = lastCommId.slice(-3);
+        lastCommId = parseInt(lastCommId)+1;
+        lastCommId = "co"+lastCommId;
+    }
+    for(let i in jsonCommander){
+        prixTot +=(jsonCommander[i].prixBiere*jsonCommander[i].quantitBiere);
+        quantTot +=jsonCommander[i].quantitBiere;
+    }
+
+    url ='insertHistorique?coId='+lastCommId+'&cId='+clientId+'&prTot='+prixTot+'&qttTot='+quantTot;
+
+    xhr = new XMLHttpRequest();
+    xhr.open('get',url, false);
+    xhr.onload = function(){
+        console.log(url)
+    }
+    ;
+    xhr.onerror=function(){console.log("error");}
+    xhr.send();
+
+
+    for(let i in jsonCommander){
+        url='insertVente?coId='+lastCommId+'&bId='+jsonCommander[i].idBiere+'&numL='+count+'&qtt='+jsonCommander[i].quantitBiere;
+
+        xhr = new XMLHttpRequest();
+        xhr.open('get',url,false);
+        xhr.onload = function(){
+            console.log(url);
+        };
+        xhr.onerror=function(){console.log("error");}
+        xhr.send();
+        count++;
+    }
+}
+
 
 
 
