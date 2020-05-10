@@ -108,4 +108,22 @@ le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum 
     
     
 ## DETAIL DB
+Description des tables de notre database:
+* *tbPanier*:  
+Elle sert a stocker les informations du panier de chaques clients
+* *tbVentes*:  
+Elle sert a stocker les informations des commandes passées ( les bieres commandées, avec leurs quantités)
+* *tbHistoriques*:  
+Elle sert a stocker les informations globales des commandes passées ( les client, prix total, quantité totale et date.)
+* *tbClients*:  
+Elle sert a stocker les informations des clients.
+* *tbBieres*
+Elle sert a stocker les informations des bieres misent a la vente.
+* *tbBrasseurs*:  
+Elle sert a stocker les informations des brasseurs
+* *tbVilles*:  
+Elle sert a stocker les informations des villes ( Pour une fonctionnalité supplémentaire pas encore developpée).
+
+
+#### Voici un diagramme démontrant le rapport entre chaques table:
 ![Diagramme de la database](https://i.imgur.com/m8k606a.png)
