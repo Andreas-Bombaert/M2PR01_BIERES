@@ -39,18 +39,6 @@ CREATE TABLE tbBieres (
     ON UPDATE CASCADE 
     ON DELETE RESTRICT
 );
-  
-/*
-Auteur: Eliott Lepage
-Création de la table panier contenant la quantité de bières achetées ainsi que son id
-*/
-CREATE TABLE "DBA"."tbPanier"(
-    "clientId" CHAR(5) NOT NULL,
-    "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
-    "quantite" INTEGER NOT NULL,
-    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId ),
-    CONSTRAINT fk__tbPanier__tbClients FOREIGN KEY ( clientId ) REFERENCES tbClients ( clientId )
-);
 
 /*
 Auteur: Andréas Bombaert
@@ -64,6 +52,18 @@ CREATE TABLE tbClients(
     clientMail VARCHAR(50) NOT NULL,
     clientPassword VARCHAR(20) NOT NULL,
     CONSTRAINT pk__Clients PRIMARY KEY (clientId)
+);  
+
+/*
+Auteur: Eliott Lepage
+Création de la table panier contenant la quantité de bières achetées ainsi que son id
+*/
+CREATE TABLE "DBA"."tbPanier"(
+    "clientId" CHAR(5) NOT NULL,
+    "biereId" CHAR(3) NOT NULL,             /* b01, b02, b03 ... */ 
+    "quantite" INTEGER NOT NULL,
+    CONSTRAINT fk__tbPanier__tbBieres FOREIGN KEY ( biereId ) REFERENCES tbBieres ( biereId ),
+    CONSTRAINT fk__tbPanier__tbClients FOREIGN KEY ( clientId ) REFERENCES tbClients ( clientId )
 );
 
 /*
