@@ -1,3 +1,8 @@
+/*
+auth : Mathis
+Creation de la procédure qui récupère toutes les bières avec des critères de tri mais accepte toutes les couleurs et toutes les brasseries, 
+le tri se fait avec le prix minimum, prix maximum, degré d'alcoolémie minimum et maximum.
+*/
 CREATE PROCEDURE "DBA"."proc_catalogueAllBrAllColors"(in pMin decimal(4,2), in pMax decimal(4,2), in dMin decimal(3,1), in dMax decimal(3,1))
 RESULT (id char(3), biere varchar(30), couleur varchar(15), alcool decimal(3,1), volume decimal(4,2), brasserie varchar(60), prix decimal(4,2))
 BEGIN
@@ -8,4 +13,8 @@ BEGIN
     where (bierePrix BETWEEN pMin AND pMax) AND (biereAlcool BETWEEN dMin AND dMax)
     order by biere.biereNom ASC;
 END;
+/*
+auth : Mathis
+Creation du webservice pour la procédure catalogueAllBrAllColors
+*/
 CREATE SERVICE "allBrAllColors" TYPE 'JSON' AUTHORIZATION OFF USER "dba" URL ON METHODS 'GET' AS call dba.proc_catalogueAllBrAllColors(:pMin,:pMax,:dMin,:dMax);
