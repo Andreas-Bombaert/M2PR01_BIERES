@@ -111,7 +111,9 @@ function toutSupprimer (clientId) {
 
 
     /* suppression de toutes les row de la table */
-    document.getElementById("defaut").innerHTML="<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, CLIQUEZ  </strong><a href='catalogue.html'>ICI </a>"
+
+    document.getElementById("defaut").innerHTML="<strong id='phrase'>Votre panier est actuellement vide ! Afin d'atteindre la page correspondant à notre catalogue de bières, CLIQUEZ  </strong><a href='catalogue.html'>ICI </a>";
+
 }
 
 
