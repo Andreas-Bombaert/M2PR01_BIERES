@@ -13,7 +13,7 @@ BEGIN
     call sa_set_http_header('Content-Type','application/json');
     Select commId, clientId, prixTot, quantTot, "date" from tbHistoriques
     where commId = code
-end
+END;
 
  ---
 /* Service pour recevoir le code JSON ( 'get'  '/history?id=co001' ).*/
