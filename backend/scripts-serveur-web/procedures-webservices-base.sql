@@ -10,7 +10,7 @@ set dbName = (SELECT db_property('name')) + '.db';
 set dbPath = left(dbPath, length(dbPath)-length(dbName));
 
 return dbPath; // renvoyer path
-END
+END;
 
 ---
 
@@ -19,7 +19,7 @@ RESULT(html long varchar)
 BEGIN
     call sa_set_http_header( 'Content-Type', 'text/html' );
     select xp_read_file(dba.getPath() ||url);
-END
+END;
 
 ---
 
@@ -28,7 +28,7 @@ RESULT(css long varchar)
 BEGIN
 call sa_set_http_header( 'Content-Type', 'text/css');
 select xp_read_file(dba.getPath() || 'css\' || url);
-END
+END;
 
 ---
 
@@ -37,7 +37,7 @@ RESULT(js long varchar)
 BEGIN
 call sa_set_http_header( 'Content-Type', 'application/javascript');
 select xp_read_file(dba.getPath() || 'js\' || url); // renvoyer js
-END
+END;
 
 ---
 
@@ -51,7 +51,7 @@ begin
  call sa_set_http_header('Content-Type','image/' || extension);
  select xp_read_file(dba.getPath() || 'img\\' || url) 
 --
-end
+end;
 
 ---
 
@@ -63,7 +63,7 @@ BEGIN
     if extension = 'ogv' then set extension = 'ogg' end if; //adapte MIME pour ogg
     call sa_set_http_header('Content-Type', 'video/' || extension);
     select xp_read_file("DBA"."getPath"() || 'video\' || url);
-END
+END;
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
