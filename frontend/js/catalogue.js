@@ -220,6 +220,10 @@ function connexionCommande(form){
 
 }
 
+/**
+ * fonction qui déconnecte l'utilisateur actuel et réinitalise le formulaire de connexion pour permettre 
+ * a un autre utilisateur de se connecter
+ */
 function deconnecter(){
     clId="";
     document.getElementById("connectedClient").innerHTML="";
