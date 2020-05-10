@@ -18,9 +18,8 @@ Nous allons creer une plateforme web afin de proposer des services de commandes 
 #### **FONCTIONNALITES SUPPLEMENTAIRES :**
   * Rajouter une description pour chaque bière, ainsi qu'un filtre pour les classer.
   * Faire un systeme de client (avec login) et ainsi avoir une fiche client.
-  * Faire une récapitulation de la commande après envoi du formulaire, avec un bouton pour pouvoir imprimer.
+  * Faire une récapitulation de la commande après envoi du formulaire.
   * Faire un historique des commandes
-  * Annuler une commande
 
 ## Implémentation technique:
 * **backend** : base de donnée contenant les tables avec les bières,leurs descriptions, 
