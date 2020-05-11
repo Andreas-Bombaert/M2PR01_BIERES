@@ -68,9 +68,9 @@ En tant qu'utilisateur je veux pouvoir:
    * *initBrasseurs()*:  
    Initialise la liste des brasseurs dans l'ordre alphabétique.
    * *insertPanier(:bId,:qtt,:cId)*:  
-   Insère les bieres avec son Id, sa quantité et l'ID du client dans la table tbPanier.
+   Insère les bières avec son Id, sa quantité et l'ID du client dans la table tbPanier.
    * *getBieres()*  
-   Donne la liste des bieres avec son ID.
+   Donne la liste des bières avec son ID.
    * *getCommId() *   
    Donne la liste des commandes ( seulement l'ID )
    * *getHistory(:code)*  
