@@ -198,7 +198,7 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
     let xhr = new XMLHttpRequest();
     xhr.open('get',url);
     xhr.onload=function(){
-        console.log(url);
+        
     };
     xhr.onerror=function(){console.log("xhr error");}
     xhr.send();
@@ -227,7 +227,6 @@ function connexionCommande(form){
             document.getElementById("connectedClient").innerHTML="";
             document.getElementById("connectedClient").innerText="Actuellement connecté(e): "+String(jsonClient[0].clientPrenom);
             document.getElementById("connectedClient").innerHTML+="<br><button id='boutonDeconnexion' class='boutonDeconnexion' onclick='deconnecter();'>Se Déconnecter</button>";
-            console.log(clId);
         }
     };
     xhr.send();
