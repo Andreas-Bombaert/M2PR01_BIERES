@@ -66,27 +66,27 @@ En tant qu'utilisateur je veux pouvoir:
  ## Détails API REST:
  Voici les différentes fonctionnalités de notre API :
    * *initBrasseurs()*:  
-   Initialise la liste des brasseurs dans l'ordre alphabétique
+   Initialise la liste des brasseurs dans l'ordre alphabétique.
    * *insertPanier(:bId,:qtt,:cId)*:  
    Insère les bieres avec son Id, sa quantité et l'ID du client dans la table tbPanier.
    * *getBieres()*  
-   Donne la liste des bieres avec son ID
+   Donne la liste des bieres avec son ID.
    * *getCommId() *   
    Donne la liste des commandes ( seulement l'ID )
    * *getHistory(:code)*  
-   Donne l'historique client selon son ID
+   Donne l'historique client selon son ID.
    * *connexion(:mail,:mdp)*  
    Vérifie si le mail et le mot de passe sont corrects et donne en retour l'ID du client et son prénom.
    * *getVentes(:id)*  
    Donne tout le contenu de la table tbVentes selon l'ID du client.
    * *insertHistorique(:coId,:cId,:prTot,:qttTot)*  
-   Insère dans la table historique l'ID de la commande, le client ID, le prix total et la quantité totale de la commande qui vient d'être effectuée
+   Insère dans la table historique l'ID de la commande, le client ID, le prix total et la quantité totale de la commande qui vient d'être effectuée.
    * *insertVente(:coId,:bId,:numL,:qtt)*  
-   Insère dans la table vente, l'ID de la commande, l'ID de la bière, le numéro de ligne en fonction de la commande, et la quantité de bières commandées
+   Insère dans la table vente, l'ID de la commande, l'ID de la bière, le numéro de ligne en fonction de la commande, et la quantité de bières commandées.
    * *panier(:cId)*  
-   Donne tout le contenu de la table tbPanier en fonction de l'ID du client
+   Donne tout le contenu de la table tbPanier en fonction de l'ID du client.
    * *suppression_all(:clId)*  
-   Supprime dans la table tbPanier tout ce qui correspond au client ID
+   Supprime dans la table tbPanier tout ce qui correspond au client ID.
    * *suppression(:id,:clId)*  
    Supprime une ligne dans la table tbPanier, en fonction de l'ID de la bière et de l'ID du client.
    * *allBr(:couleur,:pMin,:pMax,:dMin,:dMax)*  
