@@ -120,7 +120,6 @@ function connexionHistorique(form){
         };
         xhr.send();
 
-        console.log(jsonVentes);
         strDetail +="<details><summary>Details produit</summary>";
         for(let j in jsonVentes){
 
