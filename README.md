@@ -60,7 +60,6 @@ En tant qu'utilisateur je veux pouvoir:
    * Me connecter à mon compte
    * Visualiser le catalogue des bières
    * Passer une commande avec un ou plusieurs articles dans différentes quantités
-   * Annuler une commande
    * Visualiser mon historique
    
    
