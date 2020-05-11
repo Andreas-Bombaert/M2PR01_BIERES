@@ -78,7 +78,7 @@ function supprimer(id,clientId) {
     let xhr = new XMLHttpRequest();             // création d'un objet servant à effectuer la requête Ajax
     xhr.open('get', 'http://localhost/suppression?id=' + id +"&clId="+clientId, false);               // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function() {
-        console.log("");
+        
     };
     xhr.send();     // envoie la requête lorsqu'elle est prête et définie
 
@@ -105,7 +105,7 @@ function toutSupprimer (clientId) {
     let xhr = new XMLHttpRequest();               // création d'un objet servant à effectuer la requête Ajax
     xhr.open('get', 'suppression_all?clId='+clientId, false);                 // type (GET), l'url et l'asynchrone de la requête (false)
     xhr.onload = function () {
-        console.log("");
+        
     };
     xhr.send();        // envoie la requête lorsqu'elle est prête et définie
 
@@ -192,7 +192,6 @@ function commander(clientId) {
     };
     xhr.send();
 
-    console.log(jsonCommander);
     xhr = new XMLHttpRequest();
     xhr.open('get','getCommId', false);
     xhr.onload = function(){
@@ -201,12 +200,11 @@ function commander(clientId) {
     xhr.send();
 
     lastCommId = jsonCommId[Object.keys(jsonCommId).length-1].commId;
-    console.log(lastCommId[2]);
+
     if(lastCommId[2]=='0') {
         lastCommId = lastCommId.slice(-3);
         lastCommId = parseInt(lastCommId)+1;
         lastCommId = "co0"+lastCommId;
-        console.log("???")
     } else {
         lastCommId = lastCommId.slice(-3);
         lastCommId = parseInt(lastCommId)+1;
