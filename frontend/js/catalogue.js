@@ -25,7 +25,7 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
                 uneBiere +=
                     "<div class='sectionUneBiere'>" +
                     "<div class='photoBiere'>" +
-                    "<img id='photo" + i.id +"' src='../img/" + i.id + ".jpg' alt='"+ i.biere +"'>" +
+                    "<img id='photo" + i.id +"' src='img/" + i.id + ".jpg' alt='"+ i.biere +"'>" +
                     "</div>" +
                     "<div class='data'>" + "" +
                     "<span class='nomBiere'>" + i.biere + "</span><br>" +
@@ -123,7 +123,7 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) {
                 uneBiere +=
                     "<div class='sectionUneBiere'>" +
                     "<div class='photoBiere'>" +
-                    "<img id='photo" + i.id +"' src='../img/" + i.id + ".jpg' alt='"+ i.biere +"'>" +
+                    "<img id='photo" + i.id +"' src='img/" + i.id + ".jpg' alt='"+ i.biere +"'>" +
                     "</div>" +
                     "<div class='data'>" + "" +
                     "<span class='nomBiere'>" + i.biere + "</span><br>" +
