@@ -110,7 +110,7 @@ Description des tables de notre database:
 * *tbPanier*:  
 Elle sert à stocker les informations du panier de chaque clients.
 * *tbVentes*:  
-Elle sert à stocker les informations des commandes passées (les bières commandées, avec leurs quantités).
+Elle sert à stocker les informations des commandes effectuées (les bières commandées, avec leurs quantités).
 * *tbHistoriques*:  
 Elle sert à stocker les informations globales des commandes passées (les clients, prix total, quantité totale et date).
 * *tbClients*:  
