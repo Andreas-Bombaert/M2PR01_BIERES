@@ -36,7 +36,7 @@ function initPage() { // Initialise le catalogue avec l'entièrté des bières.
                     "<span class='prixBiere'>"+ i.prix + "€</span></div>" +
                     "<div id='formAjout"+i.id+"'>" +
                     "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+"); return false;'>" +
-                    "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='1' step='1'>" +
+                    "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='0' step='1'>" +
                     "<input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>"; //Construction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
             }
 
@@ -134,7 +134,7 @@ function triBiere(couleur, brasserie, pMin, pMax, dMin, dMax) {
                     "<span class='prixBiere'>"+ i.prix + "€</span></div>" +
                     "<div id='formAjout"+i.id+"'>" +
                     "<form action='#' onsubmit='addBr("+'"'+i.biere+'","'+i.id+'","'+i.brasserie+'",'+i.volume+',this.qtt.value'+','+i.prix+"); return false;'>" +
-                    "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='1' step='1'>" +
+                    "<input id='inputNombre"+i.id+"'  class='cbBiere' name='qtt' type='number' min='1' value='0' step='1'>" +
                     "<input type='submit' value='Ajouter' class='ajoutBiere'></form></div></div>"; //Construction de sections par bière avec div de photo, div de data et div de formulaire pour acheter un nombre de bières.
             }
             if (uneBiere == ""){
@@ -192,19 +192,21 @@ function addBr(biere,id,brasserie,volume,qtt,prix){
         alert("Veuillez vous connecter avant de commander");
         return false;
     }
-
-
+    let jsonFeedBack = {};
+    let feedback ="";
+    let idFeedBack="";
     let url='insertPanier?bId='+id+'&qtt='+qtt+'&cId='+clId;
     let xhr = new XMLHttpRequest();
     xhr.open('get',url);
     xhr.onload=function(){
-        
+        jsonFeedBack= Object.assign(jsonFeedBack,JSON.parse(xhr.responseText));
+        idFeedBack="inputNombre"+id;
+        document.getElementById(idFeedBack).value = jsonFeedBack[0].quant;
     };
     xhr.onerror=function(){console.log("xhr error");}
     xhr.send();
 
 }
-
 /**
  * Fait une requete HTTP XML pour recevoir l'ID du client si le mot de passe et l'identifiant (email) sont correct
  * @type {XMLHttpRequest}
